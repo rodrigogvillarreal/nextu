@@ -1,55 +1,155 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta name=”author” content=”Rodrigo Villarreal”>
-  <meta name=”keywords” content=”curriculum, vitae, rodrigo, villarreal, hoja de vida”>
-  <meta name=”description” content=”Hoja de Vida, Curriculum Vitae Rodrigo Gonzalo Villarreal, experiencia, educacion”>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,user-scalable=no">
+  <meta name="author" content="Rodrigo Villarreal">
+  <meta name="keywords" content="curriculum, vitae, rodrigo, villarreal, hoja de vida">
+  <meta name="description" content="Hoja de Vida, Curriculum Vitae Rodrigo Gonzalo Villarreal, experiencia, educacion">
   <title>Rodrigo Gonzalo Villarreal: Educacion</title>
 </head>
   <body>
     <header>
-      <svg width="300px" height="200px">
-        <image xlink:href=images/logo.svg” width=”300px” height=”200px” x=”20px” y=”20px”></image>
+      <svg width="96px" height="96px" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+       <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+       <g>
+        <title>Rodrigo Gonzalo Villarreal</title>
+        <polygon stroke-width="5" stroke="#000000" points="87.46589660644531,50 56.74072265625,92.28958129882812 7.026336669921875,76.13639831542969 7.026336669921875,23.863601684570312 56.74072265625,7.710418701171875 87.46589660644531,50 " strokeWidth="5" strokecolor="#000000" fill="#ffffff" edge="52.272789" orient="x" sides="5" shape="regularPoly" id="svg_2" cy="220" cx="183"/>
+        <text font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="serif" font-size="24" id="svg_1" y="60" x="44" stroke-width="0" stroke="#000000" fill="#007f00">RGV</text>
+       </g>
       </svg>
     	<h1>
-    		Resumen Curricular
+    		Curriculum Vitae
     	</h1>
     </header>
-    <section>
+    <section id="datos_personales">
       <h2>Datos Personales</h2>
       <h3>Nombres: Rodrigo Gonzalo</h3>
       <h3>Apellido: Villarreal</h3>
       <h3>Fecha de Nacimiento: 28 de enero de 1985</h3>
-      <h3>Lugar de Nacimiento: Alta Gracia - Cordoba</h3>
+      <h3>Lugar de Nacimiento: Alta Gracia - Córdoba</h3>
       <h3>Nacionalidad: Argentino</h3>
     </section>
-    <nav style="background-color: #AAAAAA; padding: 16px">
+    <nav style="background-color: #DDDDDD; padding: 8px">
         <ul>
           <li><a href="index.html">Inicio</a></li>
-          <li><a href="educacion.html">Educacion</a></li>
+          <li><a href="educacion.html">Educación</a></li>
           <li><a href="experiencia.html">Experiencia</a></li>
         </ul>
     </nav>
-    <section>
-      <h2>Informacion Personal</h2>
-      <img src="" alt="Rodrigo Gonzalo Villarreal" title="Foto Rodrigo Gonzalo Villarreal">
+    <section id="educacion">
+      <h2>Educación</h2>
+      <table border="1px grey dotted">
+        <thead>
+          <tr>
+            <th>Año</th>
+            <th>Institución</th>
+            <th>Curso/Carrera</th>
+            <th>Lugar</th>
+            <th>Culminó?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2002</td>
+            <td>Universidad Tecnológica Nacional</td>
+            <td>Ingeniería en Sistemas de Información</td>
+            <td>Córdoba, Argentina</td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td>2004</td>
+            <td>Profoco</td>
+            <td>Base de datos Oracle Forms and Reports</td>
+            <td>Córdoba, Argentina</td>
+            <td>Si</td>
+          </tr>
+          <tr>
+            <td>2005</td>
+            <td>CUnix</td>
+            <td>Programacion Web con PHP</td>
+            <td>Córdoba, Argentina</td>
+            <td>Si</td>
+          </tr>
+          <tr>
+            <td>2008</td>
+            <td>Oracle University</td>
+            <td>DBA Oracle</td>
+            <td>Córdoba, Argentina</td>
+            <td>Si</td>
+          </tr>
+          <tr>
+            <td>2010</td>
+            <td>Cisco University</td>
+            <td>CCNA</td>
+            <td>Córdoba, Argentina</td>
+            <td>Si</td>
+          </tr>
+          <tr>
+            <td>2016</td>
+            <td>Instituto Superior Santo Domingo</td>
+            <td>Analista de Sistemas</td>
+            <td>Carrera a Distancia</td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td>2017</td>
+            <td>Next University</td>
+            <td>Especialista en Marketing Digital</td>
+            <td>Carrera a Distancia</td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td>2017</td>
+            <td>Next University</td>
+            <td>Desarrollo Web Profesional</td>
+            <td>Carrera a Distancia</td>
+            <td>No</td>
+          </tr>
+        </tbody>
+      </table>
+    </section><br>
+    <section id="formulario">
+      <form autocomplete="on" name="Primer Formulario">
+          <fieldset>
+              <legend>Agregar Estudios</legend>
+              <label for="cboaño">Año:</label>
+              <select class="" name="cboaño">
+                <option value="2000">2000</option>
+                <option value="2001">2001</option>
+                <option value="2002">2002</option>
+                <option value="2003">2003</option>
+                <option value="2004">2004</option>
+                <option value="2005">2005</option>
+                <option value="2006">2006</option>
+                <option value="2007">2007</option>
+                <option value="2008">2008</option>
+                <option value="2009">2009</option>
+                <option value="2010">2010</option>
+                <option value="2011">2011</option>
+                <option value="2012">2012</option>
+                <option value="2013">2013</option>
+                <option value="2014">2014</option>
+                <option value="2015">2015</option>
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
+              </select><br>
+              <label for="txtinstitucion">Institución:</label>
+              <input type="text" name="txtinstitucion" required><br>
+              <label for="txtlugar">Lugar:</label>
+              <textarea name="txtlugar" rows="2" cols="40" required></textarea><br>
+              <label for="optculmino">Culminó?</label>
+              Si <input type="radio" name="optculmino" value="Si">
+              No <input type="radio" name="optculmino" value="No"><br>
+              <input type="submit" name="agregar" value="Enviar">
+      </fieldset>
+      </form>
     </section>
-    <section>
-      <h2>Perfil</h2>
-      <p>...</p>
-    </section>
-    <section>
-      <h2>Idiomas</h2>
-      <ul>
-        <li>Ingles avanzado</li>
-        <li>Portugues basico</li>
-      </ul>
-    </section>
-    <footer style="background-color: #AAAAAA; padding: 16px">
+    <footer style="background-color: #DDDDDD; padding: 8px">
       <h3>Email: <a href="mailto:rodrigogvillarreal@gmail.com">rodrigogvillarreal@gmail.com</a></h3>
-      <h3>Telefono: +54 9 3547 59 7661</h3>
-      <h3>Twitter</h3>
-      <h3>Direccion: Hermanos Maure 145 - Alta Gracia - Cordoba - Argentina</h3>
+      <h3>Teléfono: +54 9 3547 59 7661</h3>
+      <h3><a href="https://twitter.com/RGVillarrealSEO">Twitter</a></h3>
+      <h3>Dirección: Hermanos Maure 145 - Alta Gracia - Córdoba - Argentina</h3>
     </footer>
   </body>
 </html>
