@@ -1,62 +1,120 @@
+/*----------------------------------------------------
+@File: Estilos
+@Author: Rodrigo Villarreal
+
+ Contenido
+
+ 1.  Variables
+ 2.  Prefix
+ 3.  Header
+ 4.  Banners
+ 5.  Features
+
+----------------------------------------------------*/
+/*----------------------------------------------------------------*/
+/*----------------------------------------------------------------*/
+
 body {
 	font-family: 'Dancing Script';
-	background-color: black;
+	background-color: #02010a;
+}
+
+figure{
+	margin: 0;
 }
 
 #cabecera{
 	background-color: #5b7989;
-	border-radius: 10px;
-	padding: 10px 0 10px 0;
+	border-radius: 10px 10px 0 0;
 }
 
 #cabecera h1{
 	color: white;
 	text-shadow: 2px 2px #02010a;
-	display: inline;
-	padding-left: 12px;
 }
 
 .menu{
+	padding: 12px;
+	float: right;
 	color: white;
+}
+
+.menu a{
+	color: white;
+	text-decoration: underline;
+}
+
+.menu a:visited {
+	text-decoration: none;
+}
+
+.seleccionado a{
+	text-decoration: none;
 }
 
 #piePagina{
 	background-color: #c6d5c5;
 	clear: both;
-	border-radius: 10px;
+	border-radius: 0 0 10px 10px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	border: 1px;
+	padding: 10px;
+}
+.icon{
+	height: 16px;
+}
+
+.itemPiePagina{
+	width: 25%;
 }
 
 #central{
 	background-color: #82c3a6;
 	text-align: center;
-	margin: 0;
 }
 
-.secundaria{
+#grupo_imagenes{
 	background-color: #d5c75f;
-	display: inline;
-	float: left;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	border: 1px;
 }
 
-.images{
-	text-shadow: 2px 2px #02010a;
+.image{
+	box-shadow: 2px 2px #02010a;
 	border: 1px black;
 }
 
-.image-central{
+.image-central, .image-secundaria{
 	width: 80%;
 }
 
-.image-secundaria{
-	width: 45%;
+@media (min-width: 900px) {
+	.contenido {
+		width: 900px;
+		margin: 0 auto;
+		text-align: center;
+	}
+	#cabecera h1, .menu{
+		display: inline;
+	}
 }
 
-.menu{
-	display: inline-block;
-	float: right;
-	color: white;
+@media (max-width: 900px) {
+	.contenido {
+		width: 100%;
+		margin: 0 auto;
+		text-align: center;
+	}
+	#cabecera, #cabecera h1, .menu{
+		display: inline-block;
+	}
 }
 
-.contenido {
-	width: 900px;
+li{
+	list-style: none;
+	text-align: left;
 }
