@@ -4,16 +4,18 @@
 
  Contenido
 
- 1.  Variables
- 2.  Prefix
- 3.  Header
- 4.  Banners
- 5.  Features
+ 1.  Estilos Generales
+ 2.  Estilos Cabecera
+ 3.  Estilos Pie de Pagina
+ 4.  Estilos para desktop
+ 5.  Estilos para movil
+ 6.  Estilos Index
 
 ----------------------------------------------------*/
 /*----------------------------------------------------------------*/
 /*----------------------------------------------------------------*/
 
+/* 1 - Estilos Generales */
 body {
 	font-family: 'Dancing Script';
 	background-color: #02010a;
@@ -23,6 +25,13 @@ figure{
 	margin: 0;
 }
 
+li{
+	list-style: none;
+	text-align: left;
+}
+/* ----------------------------------------*/
+
+/* 2 - Estilos Cabecera */
 #cabecera{
 	background-color: #5b7989;
 	border-radius: 10px 10px 0 0;
@@ -33,54 +42,110 @@ figure{
 	text-shadow: 2px 2px #02010a;
 }
 
+#menu_cabecera{
+	background-color: #5b7989;
+}
+
 .menu{
 	padding: 12px;
-	float: right;
 	color: white;
 }
 
-.menu a{
+.menulink{
+	padding: 12px;
+	float: right;
+	color: black;
+}
+
+.menu a, .menulink a{
 	color: white;
 	text-decoration: underline;
 }
 
-.menu a:visited {
+.menu a:visited, .menulink a:visited {
 	text-decoration: none;
 }
 
 .seleccionado a{
 	text-decoration: none;
 }
+/* ----------------------------------------*/
 
+/* 3 - Estilos Pie de Pagina */
 #piePagina{
 	background-color: #c6d5c5;
 	clear: both;
 	border-radius: 0 0 10px 10px;
-	display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
 	border: 1px;
 	padding: 10px;
 }
+
 .icon{
 	height: 16px;
 }
 
-.itemPiePagina{
-	width: 25%;
-}
+/* ----------------------------------------*/
 
+/* 4 - Estilos para desktop **/
+@media (min-width: 900px) {
+	.contenido {
+		width: 900px;
+		margin: 0 auto;
+		text-align: center;
+	}
+	#cabecera{
+		text-align: right;
+	}
+	#cabecera h1, .menu{
+		display: inline;
+	}
+	#grupo_imagenes{
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+	}
+	#piePagina{
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+	}
+	.itemPiePagina{
+		width: 25%;
+	}
+}
+/* ----------------------------------------*/
+
+/* 5 - Estilos para movil **/
+@media (max-width: 900px) {
+	.contenido {
+		width: 100%;
+		margin: 0 auto;
+		text-align: center;
+	}
+	#cabecera, #cabecera h1{
+		display: flex;
+	}
+	#grupo_imagenes{
+		display: flex;
+		flex-direction: column;
+		flex-wrap: nowrap;
+	}
+	#piePagina{
+		display: flex;
+		flex-direction: column;
+		flex-wrap: nowrap;
+	}
+	.itemPiePagina{
+		width: 100%;
+		text-align: left;
+	}
+}
+/* ----------------------------------------*/
+
+/* 6 - Estilos Index */
 #central{
 	background-color: #82c3a6;
 	text-align: center;
-}
-
-#grupo_imagenes{
-	background-color: #d5c75f;
-	display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	border: 1px;
 }
 
 .image{
@@ -92,29 +157,12 @@ figure{
 	width: 80%;
 }
 
-@media (min-width: 900px) {
-	.contenido {
-		width: 900px;
-		margin: 0 auto;
-		text-align: center;
-	}
-	#cabecera h1, .menu{
-		display: inline;
-	}
+.image-secundaria{
+	max-height: 312px;
 }
 
-@media (max-width: 900px) {
-	.contenido {
-		width: 100%;
-		margin: 0 auto;
-		text-align: center;
-	}
-	#cabecera, #cabecera h1, .menu{
-		display: inline-block;
-	}
+#grupo_imagenes{
+	background-color: #d5c75f;
+	border: 1px;
 }
-
-li{
-	list-style: none;
-	text-align: left;
-}
+/* ----------------------------------------*/
