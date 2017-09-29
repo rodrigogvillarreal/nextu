@@ -10,6 +10,9 @@
  4.  Estilos para desktop
  5.  Estilos para movil
  6.  Estilos Index
+ 7.  Estilos para paisajes y retratos
+ 8.  Animaciones
+ 9.  Efectos de Imagen
 
 ----------------------------------------------------*/
 /*----------------------------------------------------------------*/
@@ -23,6 +26,7 @@ body {
 
 figure{
 	margin: 0;
+	padding: 20px;
 }
 
 li{
@@ -35,15 +39,24 @@ li{
 #cabecera{
 	background-color: #5b7989;
 	border-radius: 10px 10px 0 0;
+	display: inline-flex;
 }
 
 #cabecera h1{
 	color: white;
 	text-shadow: 2px 2px #02010a;
+	text-align: left;
+	padding-left: 20px;
+	flex-grow: 2;
 }
 
 #menu_cabecera{
 	background-color: #5b7989;
+}
+
+#menu{
+	float: right;
+	display: flex;
 }
 
 .menu{
@@ -94,63 +107,23 @@ li{
 		text-align: center;
 	}
 	#cabecera{
-		text-align: right;
+		min-width: 900px;
 	}
-	#cabecera h1, .menu{
-		display: inline;
-	}
-	#grupo_imagenes{
-		display: flex;
+	#grupo_imagenes_flex{
 		flex-direction: row;
-		flex-wrap: nowrap;
+		flex-wrap: wrap;
+		justify-content: center;
 	}
 	#piePagina{
 		display: flex;
 		flex-direction: row;
-		flex-wrap: nowrap;
+		flex-wrap: wrap;
 	}
 	.itemPiePagina{
 		width: 25%;
 	}
 }
 /* ----------------------------------------*/
-	
-.image-flex{
-   display: flex;
-   display: -webkit-flex;	
-	max-width: 300px;
-}	
-
-#image-1{
-	order: 1;
-   -webkit-flex: 1 1 auto;
-   flex: 1 1 auto;
-}
-#image-2{
-	order: 2;
-   -webkit-flex: 1 1 auto;
-   flex: 1 1 auto;
-}
-#image-3{
-	order: 3;
-   -webkit-flex: 1 1 auto;
-   flex: 1 1 auto;
-}
-#image-4{
-	order: 4;
-   -webkit-flex: 1 1 auto;
-   flex: 1 1 auto;
-}
-#image-5{
-	order: 5;
-   -webkit-flex: 1 1 auto;
-   flex: 1 1 auto;
-}
-#image-6{
-	order: 6;
-   -webkit-flex: 1 1 auto;
-   flex: 1 1 auto;
-}
 
 /* 5 - Estilos para movil **/
 @media (max-width: 900px) {
@@ -159,13 +132,24 @@ li{
 		margin: 0 auto;
 		text-align: center;
 	}
-	#cabecera, #cabecera h1{
-		display: flex;
+	#cabecera{
+		width: 100%;
+		flex-direction: column;
+	}
+	#cabecera h1{
+		text-align: center;
+	}
+	#menu{
+		flex-direction: column;
 	}
 	#grupo_imagenes{
-		display: flex;
 		flex-direction: column;
 		flex-wrap: nowrap;
+	}
+	#grupo_imagenes_flex{
+		flex-direction: column;
+		flex-wrap: wrap;
+		justify-content: center;
 	}
 	#piePagina{
 		display: flex;
@@ -198,8 +182,98 @@ li{
 	max-height: 312px;
 }
 
-#grupo_imagenes{
+#grupo_imagenes, #grupo_imagenes_flex{
 	background-color: #d5c75f;
 	border: 1px;
+	display: flex;
+}
+/* ----------------------------------------*/
+
+/* 7 - Estilos para paisajes y retratos */
+.image-flex{
+   display: flex;
+   display: -webkit-flex;
+	max-width: 240px;
+}
+
+#image-1{
+	order: 1;
+   -webkit-flex: 1 1 auto;
+   flex: 1 1 auto;
+}
+#image-2{
+	order: 2;
+   -webkit-flex: 1 1 auto;
+   flex: 1 1 auto;
+}
+#image-3{
+	order: 3;
+   -webkit-flex: 1 1 auto;
+   flex: 1 1 auto;
+}
+#image-4{
+	order: 4;
+   -webkit-flex: 1 1 auto;
+   flex: 1 1 auto;
+}
+#image-5{
+	order: 5;
+   -webkit-flex: 1 1 auto;
+   flex: 1 1 auto;
+}
+#image-6{
+	order: 6;
+   -webkit-flex: 1 1 auto;
+   flex: 1 1 auto;
+}
+/* ----------------------------------------*/
+
+/* 8 - Animaciones */
+@-webkit-keyframes AnimacionInicio{
+	0%{
+		margin-top: 150%;
+	}
+	60%{
+		margin-top: -5%;
+	}
+	100%{
+		margin-top: 0%;
+	}
+}
+
+#container{
+	animation: AnimacionInicio 2s;
+}
+
+@-webkit-keyframes AnimacionRotar{
+	to{
+		transform: rotate(15deg);
+	}
+}
+
+#img-paisaje:hover{
+	animation: AnimacionRotar 3s;
+}
+
+@-webkit-keyframes AnimacionMover{
+	to{
+		transform: translate(20px,-10px);
+	}
+}
+
+#img-retrato:hover{
+	animation: AnimacionMover 3s;
+}
+/* ----------------------------------------*/
+
+/* 9 - Efectos de Imagen */
+#image-1{
+	-webkit-filter: blur(10px);
+}
+#image-2, #image-4, #image-6{
+	-webkit-filter: grayscale(100%);
+}
+#image-3{
+	-webkit-filter: sepia(90%);
 }
 /* ----------------------------------------*/
