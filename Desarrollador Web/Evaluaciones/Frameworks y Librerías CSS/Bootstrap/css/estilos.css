@@ -1,0 +1,52 @@
+body{
+  background-color: red;
+}
+
+.body {
+  max-width: 900px;
+  height: 100%;
+  margin: 0 auto;
+  background-color: white;
+}
+
+.menu{
+  background-color: yellow;
+  text-align: center;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.logo-img {
+  width: 100px;
+}
+
+.redes-sociales {
+  margin-top: 30px;
+  margin-right: 20px;
+  text-align: right;
+}
+
+.img-social {
+  width: 40px;
+  height: 40px;
+}
+
+.img-post{
+  max-width: 160px;
+}
+
+.content-section{
+  padding: 16px;
+}
+
+.left-column {
+  border-right: 1px dashed #FFFFFF;
+}
+
+.row-centered {
+  text-align:center;
+}
+
+@media (max-width: 770px) {
+
+}
