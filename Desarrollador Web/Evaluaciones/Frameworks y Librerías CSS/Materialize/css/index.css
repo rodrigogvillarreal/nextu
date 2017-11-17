@@ -1,8 +1,97 @@
 body{
-  background-color: black;
+  background-color: #4fc3f7;
+  background-image: url("../img/paisaje_fondo.jpg");
+  background-repeat: no-repeat;
+	background-attachment: fixed;
+  background-position: 0 105px;
+  background-size: 100%;
 }
 
-.body{
-  max-width: 900px;
-  background-color: pink;
+
+#logo{
+  height: 100px;
 }
+
+#slogan{
+    font-style: italic;
+    font-weight: bolder;
+    text-transform: uppercase;
+}
+
+nav{
+  background-color: #4fc3f7;
+}
+
+.img-post{
+  float: left;
+  margin-top: 10px;
+  margin-right: 12px;
+}
+
+#autor img{
+  max-height: 120px;
+}
+
+@media (max-width: 900px) {
+  #slogan{
+    margin-top: 50px;
+  }
+  body{
+    background-position: 0 136px;
+  }
+  #slogan{
+    font-size: 1rem;
+  }
+  .post h3{
+    font-weight: bolder;
+  }
+}
+
+@media (min-width: 900px) {
+  .img-post{
+    max-height: 120px;
+  }
+}
+
+#social_icons{
+  position: fixed;
+  top: 120px;
+}
+
+#social_icons img{
+  filter: grayscale(1);
+  width: 48px;
+  height: 48px;
+}
+
+.formulario{
+  background-color: #4fc3f7;
+}
+
+/* label color */
+ .input-field label {
+   color: #000;
+ }
+ /* label focus color */
+ .input-field input[type=text]:focus + label {
+   color: #000;
+ }
+ /* label underline focus color */
+ .input-field input[type=text]:focus {
+   border-bottom: 1px solid #000;
+   box-shadow: 0 1px 0 0 #000;
+ }
+ /* valid color */
+ .input-field input[type=text].valid {
+   border-bottom: 1px solid #000;
+   box-shadow: 0 1px 0 0 #000;
+ }
+ /* invalid color */
+ .input-field input[type=text].invalid {
+   border-bottom: 1px solid #000;
+   box-shadow: 0 1px 0 0 #000;
+ }
+ /* icon prefix focus color */
+ .input-field .prefix.active {
+   color: #000;
+ }
