@@ -25,26 +25,28 @@
           </div>
         </div>
     </header>
-      <div class="row navbar menu">
-        <div  class="col-lg-2 col-md-2 col-xs-12">
-          <a href="#">Inicio</a>
-        </div>
-        <div  class="col-lg-2 col-md-2 col-xs-12">
-          <a href="#">Artistas</a>
-        </div>
-        <div  class="col-lg-2 col-md-2 col-xs-12">
-          <a href="#">Grupos</a>
-        </div>
-        <div  class="col-lg-2 col-md-2 col-xs-12">
-          <a href="#">Top 10</a>
-        </div>
-        <div  class="col-lg-2 col-md-2 col-xs-12">
-          <a href="#">Letras</a>
-        </div>
-        <div  class="col-lg-2 col-md-2 col-xs-12">
-          <a href="#">Acordes</a>
-        </div>
-      </div>
+    <nav class="navbar menu">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+            <div id="navbar" class="">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Inicio</a></li>
+                <li><a href="#!">Artistas</a></li>
+                <li><a href="#!">Grupos</a></li>
+                <li><a href="#!">Top 10</a></li>
+                <li><a href="#!">Letras</a></li>
+                <li><a href="#!">Acordes</a></li>
+              </ul>
+            </div><!--/.nav-collapse -->
+          </div>
+        </nav>
       <div class="row">
           <div class="content-section col-lg-8 col-md-8">
             <div class="row post">
@@ -60,7 +62,14 @@
                 <img class="img-rounded img-post" src="img/beatles.png" />
               </div>
               <div class="post-header col-lg-12 col-md-12">
-                Comentarios
+                <form class="form-horizontal">
+                  <div class="form-group">
+                    <label for="inputComentario" class="col-sm-2 control-label"><span class="glyphicon glyphicon-user imagen-comentario"></span></label>
+                    <div class="col-sm-10">
+                      <textarea type="text" class="form-control" id="inputComentario" placeholder="Comentario"></textarea>
+                    </div>
+                  </div>
+                </form>
               </div>
             </div>
             <div class="post">
@@ -76,7 +85,14 @@
                 <img class="img-rounded img-responsive img-post" src="img/JohnLennon.jpg" />
               </div>
               <div class="post-header col-lg-12 col-md-12">
-                Comentarios
+                <form class="form-horizontal">
+                  <div class="form-group">
+                    <label for="inputComentario" class="col-sm-2 control-label"><span class="glyphicon glyphicon-user imagen-comentario"></span></label>
+                    <div class="col-sm-10">
+                      <textarea type="text" class="form-control" id="inputComentario" placeholder="Comentario"></textarea>
+                    </div>
+                  </div>
+                </form>
               </div>
             </div>
             <div class="row post">
@@ -92,12 +108,52 @@
                 <img class="img-rounded img-post" src="img/PaulMcCartney.jpg" />
               </div>
               <div class="post-header col-lg-12 col-md-12">
-                Comentarios
+                <form class="form-horizontal">
+                  <div class="form-group">
+                    <label for="inputComentario" class="col-sm-2 control-label"><span class="glyphicon glyphicon-user imagen-comentario"></span></label>
+                    <div class="col-sm-10">
+                      <textarea type="text" class="form-control" id="inputComentario" placeholder="Comentario"></textarea>
+                    </div>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
           <div class="content-section col-lg-4 col-md-4">
-            Lateral
+            <div class="row">
+              <div class="sidebar">
+                <form class="form-horizontal">
+                  <div class="input-group">
+                      <span class="input-group-addon glyphicon glyphicon-search"></span>
+                      <input type="text" class="form-control" id="">
+                    </div>
+                </form>
+              </div>
+              <div class="busquedas">
+                <table class="table table-responsive table-bordered">
+                  <tr><td>Lorem ipsum</td></tr>
+                  <tr><td>Lorem ipsum</td></tr>
+                  <tr><td>Lorem ipsum</td></tr>
+                  <tr><td>Lorem ipsum</td></tr>
+                  <tr><td>Lorem ipsum</td></tr>
+                  <tr><td>Lorem ipsum</td></tr>
+                  <tr><td>Lorem ipsum</td></tr>
+                  <tr><td>Lorem ipsum</td></tr>
+                  <tr><td>Lorem ipsum</td></tr>
+                  <tr><td>Lorem ipsum</td></tr>
+                  <tr><td>Lorem ipsum</td></tr>
+                  <tr><td>Lorem ipsum</td></tr>
+                  <tr><td>Lorem ipsum</td></tr>
+                  <tr><td>Lorem ipsum</td></tr>
+                  <tr><td>Lorem ipsum</td></tr>
+                  <tr><td>Lorem ipsum</td></tr>
+                  <tr><td>Lorem ipsum</td></tr>
+                  <tr><td>Lorem ipsum</td></tr>
+                  <tr><td>Lorem ipsum</td></tr>
+                  <tr><td>Lorem ipsum</td></tr>
+                </table>
+              </div>
+            </div>
           </div>
       </div>
     </div> <!-- body container-fluid -->
