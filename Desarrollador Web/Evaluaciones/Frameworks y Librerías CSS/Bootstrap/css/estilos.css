@@ -9,12 +9,14 @@ body{
   background-color: white;
 }
 
+.menu a, .busquedas a{
+  text-decoration: none;
+  color: #5d0909;
+}
+
 .menu{
   background-color: #ef8d6c;
-  color: #5d0909;
   text-align: center;
-  padding-top: 12px;
-  padding-bottom: 12px;
 }
 
 .logo-img {
@@ -23,7 +25,6 @@ body{
 
 .redes-sociales {
   margin-top: 30px;
-  margin-right: 20px;
   text-align: right;
 }
 
@@ -48,8 +49,43 @@ body{
   text-align:center;
 }
 
-@media (max-width: 770px) {
+.post-header h1{
+  color: #5d0909;
+}
 
+.navbar-nav{
+   margin: 0 auto;
+   display: table;
+   table-layout: fixed;
+   float: left;
+   width: 100%;
+   text-align:center;
+}
+.navbar-nav>li {
+   display: table-cell;
+   float: none;
+   text-align: center;
+}
+
+@media (max-width: 900px) {
+  div.navbar-header{
+    display: none;
+  }
+  .redes-sociales{
+    text-align: center;
+  }
+  .busquedas{
+    text-align: center;
+  }
+  .navbar-nav{
+     table-layout: auto;
+  }
+  .navbar-nav>li {
+     display: block;
+  }
+  .logo-content {
+    text-align: center;
+  }
 }
 
 .imagen-comentario {
@@ -57,10 +93,11 @@ body{
 }
 
 .busquedas{
-  text-align: center;
+  text-align: left;
 }
 
 .busquedas td{
   padding: 10px;
   width: 100%;
+  color: #5d0909;
 }
