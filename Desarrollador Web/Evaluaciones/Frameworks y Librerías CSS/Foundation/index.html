@@ -8,52 +8,131 @@
     <link rel="stylesheet" href="css/index.css" media="screen" charset="utf-8">
   </head>
   <body>
-    <div class="body row">
-      <div class="small-4 columns">
-          <h1>Nombre Blog</h1>
-          <h2 class="right">Slogan</h2>
-          <div class="">
-            Buscar...
-          </div>
-          <div class="menu align-left">
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#">Mi plato perfecto</a></li>
-            <li><a href="#">Mis recetas</a></li>
-            <li><a href="#">Favoritos</a></li>
-          </div>
-          <div class="">
-            <img class="" src="#" />
-            <img class="" src="#" />
-            <img class="" src="#" /><br />
-            <img class="" src="#" />
-            <img class="" src="#" />
-            <img class="" src="#" />
-          </div>
-          <div class="">
-            Historial
+    <div class="row body">
+      <div class="column medium-4 small-8">
+          <h3>Cocinando</h3>
+          <div class="column small-6 small-offset-3">
+            <small>El Blog de los amantes de la Gastronomia</small>
           </div>
       </div>
-      <div class="small-8 columns">
+      <div class="column medium-8 small-4">
+
+      </div>
+      <div class="column medium-3 hide-for-small-only" id="sidebar">
+        <hr>
+        <div class="input-group">
+          <input type="search" placeholder="Buscar...">
+        </div>
+        <div class="vertical menu-principal text-center no-bullet">
+          <li><a href="#" class="">Inicio</a></li>
+          <li><a href="#">Mi plato perfecto</a></li>
+          <li><a href="#">Mis recetas</a></li>
+        </div>
+        <h6>Favoritos</h6>
+        <div class="row">
+          <div class="column small-4">
+              <img class="thumbnail" src="img/comida1.jpg" />
+          </div>
+          <div class="column small-4">
+              <img class="thumbnail" src="img/comida2.jpg" />
+          </div>
+          <div class="column small-4">
+              <img class="thumbnail" src="img/comida3.jpg" />
+          </div>
+          <div class="column small-4">
+              <img class="thumbnail" src="img/comida4.jpg" />
+          </div>
+          <div class="column small-4">
+              <img class="thumbnail" src="img/comida5.jpg" />
+          </div>
+          <div class="column small-4">
+              <img class="thumbnail" src="img/comida6.jpg" />
+          </div>
+        </div>
+        <div class="">
+          <h6></h6>Historial
+          <div class="menu">
+              <li><a href="#">Mi plato perfecto</a></li>
+              <li><a href="#">Mis recetas</a></li>
+              <li><a href="#">Platos Principales</a></li>
+              <li><a href="#">Comida Argentina</a></li>
+          </div>
+        </div>
+      </div>
+      <div class="column medium-9 small-12" id="contenido">
+        <hr>
           <div class="post">
-            <h2>Titulo</h2>
-            <small>Fecha: 22/12/2012</small>
-            <img class="" src="" />
+            <h2>Milanesa Napolitana con papas fritas</h2>
+            <small>Fecha: 22/10/2017</small>
+            <img class="thumbnail" src="img/milanesa-napolitana.jpg" />
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
             </p>
-            <div class="">
-              Comentario...
+            <div class="row">
+              <div class="column small-12">
+                <h5>Envienos un comentario</h5>
+                <textarea rows="2"></textarea>
+              </div>
+              <div class="column small-12 text-right">
+                <button type="button" class="button">Enviar</button>
+              </div>
             </div>
+              <div class="row comentario">
+                <div class="column medium-1 small-3">
+                  <img class="thumbnail persona" src="img/person1.jpg" />
+                </div>
+                <div class="column medium-11 small-9">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lectus tellus, bibendum sit amet urna non, pulvinar auctor nisl. Nunc.
+                </div>
+              </div>
+              <div class="row comentario">
+                <div class="column medium-1 small-3">
+                  <img class="thumbnail persona" src="img/person2.jpg" />
+                </div>
+                <div class="column medium-11 small-9">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lectus tellus, bibendum sit amet urna non, pulvinar auctor nisl. Nunc.
+                </div>
+              </div>
+              <div class="row comentario">
+                <div class="column medium-1 small-3">
+                  <img class="thumbnail persona" src="img/person3.jpg" />
+                </div>
+                <div class="column medium-11 small-9">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lectus tellus, bibendum sit amet urna non, pulvinar auctor nisl. Nunc.
+                </div>
+              </div>
           </div>
           <div class="post">
-            <h2>Titulo</h2>
-            <small>Fecha: 22/12/2012</small>
-            <img class="" src="" />
+            <h2>Locro, empanadas y pastelitos caseros</h2>
+            <small>Fecha: 19/10/2017</small>
+            <img class="thumbnail" src="img/asado1.jpg" />
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              Aenean aliquam venenatis vestibulum. Nulla tincidunt egestas orci vitae volutpat. Donec sit amet dictum nunc, nec posuere ex. Proin dictum eleifend tortor eget molestie. Pellentesque fringilla a mi at vehicula. Donec velit eros, efficitur ut ex ac, malesuada auctor erat. Cras mi nibh, interdum vel orci eu, porttitor accumsan tortor. Integer id mattis tellus. Duis luctus fermentum auctor. Etiam nec malesuada ante.
             </p>
-            <div class="">
-              Comentario...
+            <div class="row">
+              <div class="column small-12">
+                <h5>Envienos un comentario</h5>
+                <textarea rows="2"></textarea>
+              </div>
+              <div class="column small-12 text-right">
+                <button type="button" class="button">Enviar</button>
+              </div>
+            </div>
+            <div class="row comentario">
+              <div class="column medium-1 small-3">
+                <img class="thumbnail persona" src="img/person4.jpg" />
+              </div>
+              <div class="column medium-11 small-9">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lectus tellus, bibendum sit amet urna non, pulvinar auctor nisl. Nunc.
+              </div>
+            </div>
+            <div class="row comentario">
+              <div class="column medium-1 small-3">
+                <img class="thumbnail persona" src="img/person5.jpg" />
+              </div>
+              <div class="column medium-11 small-9">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lectus tellus, bibendum sit amet urna non, pulvinar auctor nisl. Nunc.
+              </div>
             </div>
           </div>
       </div>
