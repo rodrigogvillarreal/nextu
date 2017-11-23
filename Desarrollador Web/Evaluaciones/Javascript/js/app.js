@@ -4,17 +4,11 @@ var Calculadora = (function (valorActual, valorNuevo) {
   var tecla_presionada, valor1, valor2, posicion, resultado, operacion, conPunto;
 
   function MostrarResultado(nuevoResultado){
-    display.innerHTML = longitud(nuevoResultado);
-  }
-
-  function longitud(resultado){
-    var long = resultado.length;
-    var permitido = resultado;
-    if (long > 8){
-        resultado.substring(0, 8);
+    if (nuevoResultado.length > 8){
+        nuevoResultado = nuevoResultado.toString().substr(0,8);
+      }
+      display.innerHTML = parseFloat(nuevoResultado);
     }
-    return permitido;
-  }
 
   function inicializar(){
     resultado=0;
@@ -35,12 +29,17 @@ var Calculadora = (function (valorActual, valorNuevo) {
   function setValor(valor){
     if(posicion==1){
        if(valor1==''&&valor==0)exit;
-	     valor1+=valor;
-       MostrarResultado(valor1);
+       if(valor1.length<8){
+	        valor1+=valor;
+          MostrarResultado(valor1);
+       }
     }
     if(posicion==2){
+      if(valor2==''&&valor==0)exit;
+      if(valor2.length<8){
 	     valor2+=valor;
        MostrarResultado(valor2);
+     }
     }
   }
 
