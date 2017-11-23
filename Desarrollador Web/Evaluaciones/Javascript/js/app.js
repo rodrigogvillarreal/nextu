@@ -100,13 +100,13 @@ var Calculadora = (function (valorActual, valorNuevo) {
     	    break;
     	  case "igual":
     	    switch(operacion){
-    		case "mas":
+    		      case "mas":
           		  resultado = parseFloat(valor1) + parseFloat(valor2);
     		  break;
-    		case "menos":
+    		    case "menos":
           		  resultado = parseFloat(valor1) - parseFloat(valor2);
     		  break;
-    		case "por":
+    		    case "por":
           		  resultado = parseFloat(valor1) * parseFloat(valor2);
     		  break;
     		case "dividido":
