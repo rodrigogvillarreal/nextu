@@ -57,6 +57,17 @@ if(isset($todos)){
   }
 }
 
-print json_encode($ciudades);
+//print json_encode($ciudades);
+$template_ciudad = "";
+$template_ciudades = array();
+
+foreach ( $ciudades as $ciudad ) {
+
+  $template_ciudad = "<div class='itemMostrado card'><img src='img/home.jpg' alt='Demo'><div class='card-stacked'><strong>Dirección: </strong>".$ciudad["Direccion"]."</br><strong>Ciudad: </strong>".$ciudad["Ciudad"]."</br><strong>Teléfono: </strong>".$ciudad["Telefono"]."</br><strong>Código Postal: </strong>".$ciudad["Codigo_Postal"]."</br><strong>Tipo: </strong>".$ciudad["Tipo"]."</br><strong>Precio: </strong><span class='precioTexto'>".$ciudad["Precio"]."</span></br><div class='card-action'>VER MAS</div></div></div>";
+  $template_ciudades[] = $template_ciudad;
+
+}
+
+print json_encode($template_ciudades);
 
 ?>
