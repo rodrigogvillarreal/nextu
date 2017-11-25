@@ -11,13 +11,9 @@ foreach($data as $d){
   $ciudades[] = $d['Ciudad'];
 }
 
+//Para que no se repitan las ciudades
 $ciudades = array_unique($ciudades);
 
-$lista_opciones='';
-
-foreach($ciudades as $ciudad){
-  $lista_opciones.= "<option value=".$ciudad.">".$ciudad."</option>";
-}
-
-return $lista_opciones;
+//Devuelvo un Json con las ciudades
+print json_encode($ciudades);
 ?>

@@ -11,9 +11,9 @@ foreach($data as $d){
   $tipos[] = $d['Tipo'];
 }
 
+//Para que no se repitan los tipos
 $tipos = array_unique($tipos);
 
-foreach($tipos as $tipo){
-  echo "<option value=".$tipo.">".$tipo."</option>";
-}
+//Devuelvo un Json con los tipos
+print json_encode($tipos);
 ?>
