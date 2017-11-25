@@ -28,9 +28,20 @@ $(document).ready(function() {
     });
 
     $('#formulario').on('submit', function(event){
-      $.post('buscador.php', {todos: '0', ciudad: $('#selectCiudad').val(), tipo: $('#selectTipo').val(), precio: $('#rangoPrecio').val()}, function(data){
 
+      var parametros = {
+        "todos": 0,
+        "ciudad": $('#selectCiudad').val(),
+        "tipo": $('#selectTipo').val(),
+        "precio": $('#rangoPrecio').val()
+      };
+
+      $.post('buscador.php', $("#formulario").serialize(), function(data){
+        $.each(data, function( key, valor){
+          console.log(valor.Ciudad+' - '+valor.Tipo+' - '+valor.Precio);
+        })
       }, 'json');
+
       event.preventDefault();
     });
 
