@@ -1,0 +1,57 @@
+{
+    "descripcion":"Curso Javascript lo esencial > Evaluacion Final",
+    "fecha":"09/04/2018",
+    "estudiantes":
+    [
+        {
+        "codigo":"001",
+        "nombre":"Rodrigo Villarreal",
+        "nota":10,
+        },
+        {
+        "codigo":"002",
+        "nombre":"Marcelo Chanquia",
+        "nota":8,
+        },
+        {
+        "codigo":"003",
+        "nombre":"Facundo Pallero",
+        "nota":2,
+        },
+        {
+        "codigo":"004",
+        "nombre":"Gonzalo Romero",
+        "nota":4,
+        },
+        {
+        "codigo":"005",
+        "nombre":"Federico Savedra",
+        "nota":6,
+        },
+        {
+        "codigo":"006",
+        "nombre":"Lucas Astrada",
+        "nota":7,
+        },
+        {
+        "codigo":"007",
+        "nombre":"Luis Saleme",
+        "nota":7,
+        },
+        {
+        "codigo":"008",
+        "nombre":"Pablo Visioli",
+        "nota":9,
+        },
+        {
+        "codigo":"009",
+        "nombre":"Rafael Arias",
+        "nota":9,
+        },
+        {
+        "codigo":"010",
+        "nombre":"Luis Olivetto",
+        "nota":5,
+        }
+    ]
+}

@@ -24,7 +24,7 @@ $(document).ready(function() {
     $('#mostrarTodos').click(function(){
 
       $('#resultados').html('');
-      $.post('buscador.php', {todos: 1}, function(data){
+      $.post('buscador.php', {todos: 1, ciudad: '', tipo: 0, precio: 0}, function(data){
         $.each(data, function( key, valor){
           $('#resultados').append(valor);
         });
