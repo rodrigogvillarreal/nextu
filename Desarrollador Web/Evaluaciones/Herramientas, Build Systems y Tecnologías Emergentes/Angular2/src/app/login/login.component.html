@@ -1,5 +1,5 @@
 <div class="text-center">
-<form class="form-signin" (ngSubmit)="enviarForm(f)" #f="ngForm">
+<form class="form-signin" (ngSubmit)="validarUsuario(f)" #f="ngForm">
     <h1 class="h3 mb-3 font-weight-normal">Inicia Sesión</h1>
     <label for="inputEmail" class="sr-only">Correo electrónico:</label>
     <input type="email" id="inputEmail" class="form-control" placeholder="Correo electrónico" ngModel name="email" required autofocus>
@@ -9,3 +9,8 @@
     <p class="mt-5 mb-3 text-muted">&copy; Rodrigo Villarreal</p>
   </form>
 </div>
+<ul>
+  <li class="text" *ngFor="let item of usuarios | async">
+    {{item.nombre}}
+  </li>
+</ul>

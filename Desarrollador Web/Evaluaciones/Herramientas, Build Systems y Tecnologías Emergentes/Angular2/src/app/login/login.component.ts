@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { DataService } from '../data.service';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -10,15 +12,18 @@ import { DataService } from '../data.service';
 export class LoginComponent {
 
   usuarios : string[] = [];
+  items: Observable<any[]>;
 
-  constructor(private dataService : DataService) { }
-
-  ngOnInit() {
-    this.usuarios = this.dataService.getUsers();
+  constructor(private dataService : DataService, db: AngularFirestore) { 
+    this.items = db.collection('usuarios').valueChanges();
   }
 
-  enviarForm(form){
-    console.log(form);
+  ngOnInit() {
+    this.dataService.getUsers();
+  }
+
+  validarUsuario(form){
+    console.log(form.value.email);
   }
 
 }
