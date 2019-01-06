@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import 'rxjs/Rx';
 
 @Injectable()
 export class HttpService {
 
-  constructor(private http : Http) { }
+  constructor(private http : HttpClient) { }
 
   getDatosUsuarios(){
     return this.http.get('https://ecommerce-nextu.firebaseio.com/usuarios.json')
-    .map((response: Response)=>response.json());
+      .subscribe((data: Response) => console.log(data));
+
   }
 
 }

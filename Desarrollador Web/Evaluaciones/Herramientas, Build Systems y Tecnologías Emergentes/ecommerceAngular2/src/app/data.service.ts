@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpService } from './http.service';
-import { Response } from '@angular/http';
 
 @Injectable()
 export class DataService {
@@ -10,15 +9,12 @@ export class DataService {
   constructor(private httpService: HttpService) { }
 
   getUsers(){
-    this.httpService.getDatosUsuarios()
-      .subscribe(
-        (data: Response) => console.log(data)
-      )
-    return this.usuarios;
+    return this.httpService.getDatosUsuarios();
   }
 
   getUsersIterable(){
-    this.httpService.getDatosUsuarios()
+    return this.httpService.getDatosUsuarios()
+    /*
       .subscribe(
         (data: Response) => {
           let aux : any[] = [];
@@ -29,6 +25,7 @@ export class DataService {
         }
       )
     return this.usuarios;
+    */
   }  
 
 }

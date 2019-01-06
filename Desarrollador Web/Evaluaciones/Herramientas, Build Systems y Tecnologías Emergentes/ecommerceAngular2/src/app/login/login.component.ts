@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { DataService } from '../data.service';
-import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -14,8 +13,8 @@ export class LoginComponent {
   usuarios : string[] = [];
   items: Observable<any[]>;
 
-  constructor(private dataService : DataService, db: AngularFirestore) { 
-    this.items = db.collection('usuarios').valueChanges();
+  constructor(private dataService : DataService) { 
+    
   }
 
   ngOnInit() {
