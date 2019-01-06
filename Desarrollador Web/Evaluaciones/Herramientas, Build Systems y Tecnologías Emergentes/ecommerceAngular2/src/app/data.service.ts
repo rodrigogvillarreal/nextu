@@ -12,20 +12,4 @@ export class DataService {
     return this.httpService.getDatosUsuarios();
   }
 
-  getUsersIterable(){
-    return this.httpService.getDatosUsuarios()
-    /*
-      .subscribe(
-        (data: Response) => {
-          let aux : any[] = [];
-          for(let key in data){
-            aux.push(data[key].email);
-          }
-          this.usuarios = aux;
-        }
-      )
-    return this.usuarios;
-    */
-  }  
-
 }

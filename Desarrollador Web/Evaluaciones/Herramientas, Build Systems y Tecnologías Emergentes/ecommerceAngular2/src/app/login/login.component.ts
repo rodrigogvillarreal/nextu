@@ -1,24 +1,18 @@
 import { Component } from '@angular/core';
-import { DataService } from '../data.service';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
-  providers: [DataService],
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
 
-  usuarios : string[] = [];
-  items: Observable<any[]>;
+  usuarios: Observable<any[]>;
 
-  constructor(private dataService : DataService) { 
-    
-  }
-
-  ngOnInit() {
-    this.dataService.getUsers();
+  constructor(db: AngularFirestore) { 
+    this.usuarios = db.collection('usuarios').valueChanges();
   }
 
   validarUsuario(form){
