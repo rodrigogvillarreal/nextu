@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: "AIzaSyBfE8S4_anPwf65zhM3WW4e89xDw445JNs",
+    authDomain: "ecommerce-nextu.firebaseapp.com",
+    databaseURL: "https://ecommerce-nextu.firebaseio.com",
+    projectId: "ecommerce-nextu",
+    storageBucket: "ecommerce-nextu.appspot.com",
+    messagingSenderId: "563172975645"
+  }  
 };
 
 /*
