@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -9,10 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class LoginComponent {
 
-  usuarios: Observable<any[]>;
+  constructor() { 
 
-  constructor(db: AngularFirestore) { 
-    this.usuarios = db.collection('usuarios').valueChanges();
   }
 
   validarUsuario(form){
