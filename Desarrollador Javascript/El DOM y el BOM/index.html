@@ -16,22 +16,27 @@
 			
 			<h2>Registro Estudiante</h2>
 			
-			<div>
-				<label for="txtCodigo">Código:</label>
-				<input type="text" id="txtCodigo">
-			</div>
-			<div>
-				<label for="txtNombre">Nombre:</label>
-				<input type="text" id="txtNombre">
-			</div>
-			<div>
-				<label for="txtNota">Nota:</label>
-				<input type="text" id="txtNota">
-			</div>
-			<input type="button" id="btnRegistrar" value="Registrar Estudiante">
-			<input type="button" id="btnPromedio" value="Mostrar Promedio">
-			<input type="button" id="btnNotaMayor" value="Mostrar Nota Mayor">
-			<input type="button" id="btnNotaMenor" value="Mostrar Nota Menor">
+			<form>	
+
+				<div>
+					<label for="txtCodigo">Código:</label>
+					<input type="text" id="txtCodigo" required>
+				</div>
+				<div>
+					<label for="txtNombre">Nombre:</label>
+					<input type="text" id="txtNombre" required>
+				</div>
+				<div>
+					<label for="txtNota">Nota:</label>
+					<input type="text" id="txtNota" required>
+				</div>
+
+				<input type="button" id="btnRegistrar" value="Registrar Estudiante">
+				<input type="button" id="btnPromedio" value="Mostrar Promedio">
+				<input type="button" id="btnNotaMayor" value="Mostrar Nota Mayor">
+				<input type="button" id="btnNotaMenor" value="Mostrar Nota Menor">
+
+			</form>
 
 		</div>
 
@@ -39,12 +44,8 @@
 			
 			<h2>Lista de Estudiantes</h2>
 			
-			<table>
-				<th>
-					<td>Código</td>
-					<td>Nombre</td>
-					<td>Nota</td>
-				</th>
+			<table id='listaAlumnos'>
+
 			
 			</table>
 		</div>
