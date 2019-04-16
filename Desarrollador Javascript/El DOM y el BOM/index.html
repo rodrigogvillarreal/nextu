@@ -3,48 +3,64 @@
 <head>
 <meta charset="utf-8" />
 <title>Curso El DOM y el BOM > Evaluacion Final | Rodrigo Villarreal</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet" type="text/css" href="estilos.css" />
 </head>
 <body onload="inicio()">
-	<div class="contenedor">
+	<div class="container">
 
 		<div>
 			<h1>Curso El DOM y el BOM > Evaluacion Final</h1>
 		</div>
 
-		<div class="registro">
+		<div class="row">
+
+		<div class="registro col-md-3">
 			
 			<h2>Registro Estudiante</h2>
 			
 			<form>	
 
-				<div>
-					<label for="txtCodigo">Código:</label>
-					<input type="text" id="txtCodigo" required>
+				<div class="form-group">
+					<label for="txtCodigo" class="form-check-label">Código:</label>
+					<input type="text" id="txtCodigo" class="form-control" required>
 				</div>
-				<div>
-					<label for="txtNombre">Nombre:</label>
-					<input type="text" id="txtNombre" required>
+				<div class="form-group">
+					<label for="txtNombre" class="form-check-label">Nombre:</label>
+					<input type="text" id="txtNombre" class="form-control" required>
 				</div>
-				<div>
-					<label for="txtNota">Nota:</label>
-					<input type="text" id="txtNota" required>
+				<div class="form-group">
+					<label for="txtNota" class="form-check-label">Nota:</label>
+					<input type="text" id="txtNota" class="form-control" required>
 				</div>
 
-				<input type="button" id="btnRegistrar" value="Registrar Estudiante">
-				<input type="button" id="btnPromedio" value="Mostrar Promedio">
-				<input type="button" id="btnNotaMayor" value="Mostrar Nota Mayor">
-				<input type="button" id="btnNotaMenor" value="Mostrar Nota Menor">
+				<input type="button" id="btnRegistrar" value="Registrar Estudiante" class="btn btn-success">				
 
 			</form>
 
 		</div>
 
-		<div class="listado">
-			
+		<div class="registro col-md-6">
+
 			<h2>Lista de Estudiantes</h2>
-			
-			<table id='listaAlumnos'></table>
+
+			<table id='listaAlumnos' class="table"></table>
+
+		</div>	
+		
+		<div class="registro col-md-3">
+
+				<h3>Opciones</h3>
+
+				<div class="list-group">
+					<input type="button" id="btnPromedio" value="Mostrar Promedio" class="btn btn-info">
+					<input type="button" id="btnNotaMayor" value="Mostrar Nota Mayor" class="btn btn-info">
+					<input type="button" id="btnNotaMenor" value="Mostrar Nota Menor" class="btn btn-info">
+				</div>
+
+			</div>		
+
 		</div>
 	</div>
 	<script type="text/javascript" src="index.js"></script>
