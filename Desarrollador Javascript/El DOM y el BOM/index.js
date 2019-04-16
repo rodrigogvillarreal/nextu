@@ -1,4 +1,32 @@
-console.log("Archivo Javascript cargado!");
+
+function inicio(){
+
+    console.log("Archivo Javascript cargado!");
+
+    var tabla = document.getElementById("listaAlumnos");
+
+    //Preparo el registro cabecera de la lista de alumnos
+    var registroCabecera = document.createElement("thead");
+    agregarCelda(registroCabecera, "th", "Código");
+    agregarCelda(registroCabecera, "th", "Nombre");
+    agregarCelda(registroCabecera, "th", "Nota"); 
+
+    //Agrego el registro cabecera a la tabla
+    tabla.appendChild(registroCabecera);
+
+    //Cargo estilos a la tabla
+    tabla.style.border = "1px solid black";
+}
+
+/*
+    funcion que genera las celdas de la tabla
+*/
+function agregarCelda(elementoPadre, tipo, contenido){
+    var nuevoElemento = document.createElement(tipo);
+    nuevoElemento.innerHTML = contenido;
+    nuevoElemento.style.border = "1px solid black";
+    elementoPadre.appendChild(nuevoElemento);
+}
 
 var Alumnos = new Array();
 
@@ -37,7 +65,7 @@ function registrarAlumno(){
 
     Alumnos.push(al);
 
-    showResultado("Se registro el alumno correctamente, cantidad de alumnos registrados: " + Alumnos.length);
+    //showResultado("Se registro el alumno correctamente, cantidad de alumnos registrados: " + Alumnos.length);
 }
 
 /*
@@ -102,12 +130,29 @@ function showResultado(resultado){
     funcion que carga la lista de alumnos
 */
 function listarAlumnos(){
+    
     var tabla = document.getElementById("listaAlumnos");
 
-    tabla.innerHTML = "<th><td>Código</td><td>Nombre</td><td>Nota</td></th>";
+    //quito los elementos la tabla 
+    limpiarTabla();
 
     for(var i=0; i<=Alumnos.length-1; i++){
-        var registro = "<tr><td>"+Alumnos[i].codigo+"</td><td>"+Alumnos[i].nombre+"</td><td>"+Alumnos[i].nota+"</td></tr>";
-        tabla.innerHTML += registro;
+
+        var registroAlumno = document.createElement("tr");
+        agregarCelda(registroAlumno, "td", Alumnos[i].codigo);
+        agregarCelda(registroAlumno, "td", Alumnos[i].nombre);
+        agregarCelda(registroAlumno, "td", Alumnos[i].nota);
+
+        tabla.appendChild(registroAlumno);
     }    
+}
+
+/*
+    funcion que limpia los registros de alumnos visualizados
+*/
+function limpiarTabla(){
+    var tabla = document.getElementById("listaAlumnos");
+    while(tabla.childNodes.length>1){
+        tabla.removeChild(tabla.childNodes[tabla.childNodes.length-1]);
+    }
 }
