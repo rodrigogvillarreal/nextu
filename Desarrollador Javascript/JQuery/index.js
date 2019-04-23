@@ -79,7 +79,14 @@ function limpiarTabla(){
             tabla.children()[1].childNodes[0].remove();
         }
     }
-}    
+}  
+
+/*
+    funcion que recupera un objeto alumno segun su codigo
+*/
+function recuperarAlumno(codigo){
+    return $.parseJSON(localStorage.getItem(localStorage.key(codigo)));
+}
 
 $(document).ready(function(){
 
@@ -144,11 +151,46 @@ $(document).ready(function(){
         $("#txtNombre").val("");
         $("#txtNota").val("");
 
-    });        
+    });     
+    
+    $("#btnPromedio").on("click", function(){
+        var suma = 0; cuenta = 0;
+        for(var i=0; i<localStorage.length; i++){
+            suma+=parseInt(recuperarAlumno(i).nota);
+            cuenta++;
+        }
+        var promedio = suma/cuenta;
+        showResultado('El promedio de notas es: '+ promedio.toFixed(2));
+    });
+
+    $("#btnNotaMayor").on("click", function(){     
+        var alumno; 
+        var nota;
+        for(var i=0; i<localStorage.length; i++){
+            alumno = recuperarAlumno(i);
+            if(i==0){nota=alumno.nota} //guardo la primer nota como base
+            if(parseInt(alumno.nota)>parseInt(nota)){
+                nota=alumno.nota;
+            }
+        }
+        showResultado('La nota mayor es: '+nota.toString());
+    });
+    
+    $("#btnNotaMenor").on("click", function(){
+        var alumno; nota = 0;
+        for(var i=0; i<localStorage.length; i++){
+            alumno = recuperarAlumno(i);
+            if(i==0){nota=alumno.nota} //guardo la primer nota como base
+            if(parseInt(alumno.nota)<parseInt(nota)){
+                nota=alumno.nota;
+            }
+        }
+        showResultado('La nota menor es: '+nota.toString());
+    });
 
 });
 
-
+/* DEJO COMENTADO RESTOS DE LA EVALUACION ANTERIOR */
 
 // var Alumnos = new Array();
 
@@ -178,39 +220,39 @@ $(document).ready(function(){
 /*
     funcion que calcula el promedio de notas en la lista de alumnos
 */
-function calcularPromedio(){
-    var suma = 0;
-    var cuenta = 0;
-    for(var i=0; i<=Alumnos.length-1; i++){
-        suma+=parseInt(Alumnos[i].nota);
-        cuenta++;
-    }
-    var promedio = suma/cuenta;
-    showResultado('El promedio de notas es: '+ promedio.toFixed(2));
-}
+// function calcularPromedio(){
+//     var suma = 0;
+//     var cuenta = 0;
+//     for(var i=0; i<=Alumnos.length-1; i++){
+//         suma+=parseInt(Alumnos[i].nota);
+//         cuenta++;
+//     }
+//     var promedio = suma/cuenta;
+//     showResultado('El promedio de notas es: '+ promedio.toFixed(2));
+// }
 
 /*
     funcion que busca la nota mayor en la lista de alumnos
 */
-function buscarNotaMayor(){
-    var nota = Alumnos[0].nota;
-    for(var i=0; i<=Alumnos.length-1; i++){
-        if(parseInt(Alumnos[i].nota)>parseInt(nota)){
-            nota=Alumnos[i].nota;
-        }
-    }
-    showResultado('La nota mayor es: '+nota.toString());
-}
+// function buscarNotaMayor(){
+//     var nota = Alumnos[0].nota;
+//     for(var i=0; i<=Alumnos.length-1; i++){
+//         if(parseInt(Alumnos[i].nota)>parseInt(nota)){
+//             nota=Alumnos[i].nota;
+//         }
+//     }
+//     showResultado('La nota mayor es: '+nota.toString());
+// }
 
 /*
     funcion que busca la nota menor en la lista de alumnos
 */
-function buscarNotaMenor(){
-    var nota = Alumnos[0].nota;
-    for(var i=0; i<=Alumnos.length-1; i++){
-        if(parseInt(Alumnos[i].nota)<parseInt(nota)){
-            nota=Alumnos[i].nota;
-        }
-    }
-    showResultado('La nota menor es: '+nota.toString());
-}
+// function buscarNotaMenor(){
+//     var nota = Alumnos[0].nota;
+//     for(var i=0; i<=Alumnos.length-1; i++){
+//         if(parseInt(Alumnos[i].nota)<parseInt(nota)){
+//             nota=Alumnos[i].nota;
+//         }
+//     }
+//     showResultado('La nota menor es: '+nota.toString());
+// }
