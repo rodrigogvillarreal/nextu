@@ -1,3 +1,85 @@
+/*
+    funcion que genera las celdas de la tabla
+*/
+function agregarCelda(elementoPadre, tipo, contenido){
+    var nuevoElemento = document.createElement(tipo);
+    nuevoElemento.innerHTML = contenido;
+    nuevoElemento.style.border = "1px solid black";
+    elementoPadre.appendChild(nuevoElemento);
+}
+
+/*
+    Agrego la funcion para editar un alumno
+*/
+function editarAlumno(codigo){
+    var alumno;
+    for(var i=0; i<localStorage.length; i++){
+       var codigoAlmacenado = localStorage.key(i);
+       if(codigoAlmacenado==codigo) {
+           alumno = $.parseJSON(localStorage.getItem(codigo));
+           $("#txtCodigo").val(alumno.codigo);
+           $("#txtNombre").val(alumno.nombre);
+           $("#txtNota").val(alumno.nota);
+       }
+    }
+}
+
+/*
+    Agrego la funcion para eliminar un alumno
+*/
+function eliminarAlumno(codigo){
+    localStorage.removeItem(codigo);
+    listarAlumnos();
+} 
+
+/*
+    funcion que carga la lista de alumnos
+*/
+function listarAlumnos(){
+    
+    //var tabla = document.getElementById("listaAlumnos");
+    var tabla = $("#listaAlumnos");
+
+    limpiarTabla();
+
+    for(var i=0; i<localStorage.length; i++){
+
+        var clave = localStorage.key(i);
+        var alumno = $.parseJSON(localStorage.getItem(clave));
+
+        var registroAlumno = document.createElement("tr");
+        agregarCelda(registroAlumno, "td", alumno.codigo);
+        agregarCelda(registroAlumno, "td", alumno.nombre);
+        agregarCelda(registroAlumno, "td", alumno.nota);
+        agregarCelda(registroAlumno, "td", '<button class="btn btn-success" onclick="editarAlumno(\'' + alumno.codigo + '\');">Editar</button>');
+        agregarCelda(registroAlumno, "td", '<button class="btn btn-danger" onclick="eliminarAlumno(\'' + alumno.codigo + '\');">Eliminar</button>');
+
+        tabla.append(registroAlumno);
+    }  
+}   
+
+/*
+    funcion que muestra el resultado en la forma indicada
+    en este caso usamos alert como indica la consigna
+*/
+function showResultado(resultado){
+    alert(resultado);
+}
+
+/*
+    funcion que limpia los registros de alumnos visualizados
+*/
+function limpiarTabla(){
+    //var tabla = document.getElementById("listaAlumnos");
+    var tabla = $("#listaAlumnos");
+
+    if(tabla.children().length>1){
+        while(tabla.children()[1].childNodes.length>0)
+        {
+            tabla.children()[1].childNodes[0].remove();
+        }
+    }
+}    
 
 $(document).ready(function(){
 
@@ -36,16 +118,6 @@ $(document).ready(function(){
     listarAlumnos();
 
     /*
-        funcion que genera las celdas de la tabla
-    */
-    function agregarCelda(elementoPadre, tipo, contenido){
-        var nuevoElemento = document.createElement(tipo);
-        nuevoElemento.innerHTML = contenido;
-        nuevoElemento.style.border = "1px solid black";
-        elementoPadre.appendChild(nuevoElemento);
-    }
-
-    /*
         funcion que registra alumnos
     */
     $("#btnRegistrar").on("click", function(){
@@ -72,56 +144,7 @@ $(document).ready(function(){
         $("#txtNombre").val("");
         $("#txtNota").val("");
 
-    });    
-
-    /*
-        funcion que carga la lista de alumnos
-    */
-    function listarAlumnos(){
-        
-        //var tabla = document.getElementById("listaAlumnos");
-        var tabla = $("#listaAlumnos");
-
-        limpiarTabla();
-
-        for(var i=0; i<localStorage.length; i++){
-
-            var clave = localStorage.key(i);
-            var alumno = $.parseJSON(localStorage.getItem(clave));
-
-            var registroAlumno = document.createElement("tr");
-            agregarCelda(registroAlumno, "td", alumno.codigo);
-            agregarCelda(registroAlumno, "td", alumno.nombre);
-            agregarCelda(registroAlumno, "td", alumno.nota);
-            agregarCelda(registroAlumno, "td", "");
-            agregarCelda(registroAlumno, "td", "");
-
-            tabla.append(registroAlumno);
-        }  
-    }
-
-    /*
-        funcion que muestra el resultado en la forma indicada
-        en este caso usamos alert como indica la consigna
-    */
-    function showResultado(resultado){
-        alert(resultado);
-    }
-
-    /*
-        funcion que limpia los registros de alumnos visualizados
-    */
-    function limpiarTabla(){
-        //var tabla = document.getElementById("listaAlumnos");
-        var tabla = $("#listaAlumnos");
-
-        if(tabla.children().length>1){
-            while(tabla.children()[1].childNodes.length>0)
-            {
-                tabla.children()[1].childNodes[0].remove();
-            }
-        }
-    }    
+    });        
 
 });
 
