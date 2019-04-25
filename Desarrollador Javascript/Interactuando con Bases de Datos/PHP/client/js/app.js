@@ -38,7 +38,7 @@ class EventsManager {
         		center: 'title',
         		right: 'month,agendaWeek,basicDay'
         	},
-        	defaultDate: '2016-11-01',
+        	defaultDate: '2019-05-01',
         	navLinks: true,
         	editable: true,
         	eventLimit: true,
