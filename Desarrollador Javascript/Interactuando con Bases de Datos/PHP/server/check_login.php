@@ -1,5 +1,5 @@
 <?php
-
+    session_start();
     require('./conector.php');
 
     $conn = new ConectorBD();
@@ -25,7 +25,7 @@
             $respuesta['msg'] = 'La contraseña es incorrecta';
         }
 
-        //guardo el usuario como dato de sesión
+        //guardo el usuario como dato de sesión        
         $_SESSION['username'] = $user;
 
     }
