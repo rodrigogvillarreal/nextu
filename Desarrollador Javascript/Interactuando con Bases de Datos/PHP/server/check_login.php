@@ -30,6 +30,8 @@
 
     }
 
+    $conn->cerrarConexion();
+
     echo json_encode($respuesta);
 
  ?>
