@@ -17,26 +17,28 @@
 
     $resultado = $conn->ejecutarSql($sql);
 
-    $respuesta['msg'] = 'OK';
+    if( $resultado == true )
+    {
+        $respuesta['msg'] = 'OK';
 
-    while( $fila = $resultado->fetch_array() ){
-        
-        if( $fila['diaCompleto'] == 0 )
-        {
-            $respuesta['eventos'][] = array(
-                                            'id' => $fila['id'],
-                                            'title' => $fila['titulo'],
-                                            'start' => $fila['fechaInicio']." ".$fila['horaInicio'],
-                                            'end' => $fila['fechaFinalizacion']." ".$fila['horaFinalizacion']
-                                        );
-        } else {
-            $respuesta['eventos'][] = array(
-                'id' => $fila['id'],
-                'title' => $fila['titulo'],
-                'start' => $fila['fechaInicio']
-            );            
-        } 
-
+        while( $fila = $resultado->fetch_array() ){
+            
+            if( $fila['diaCompleto'] == 0 )
+            {
+                $respuesta['eventos'][] = array(
+                                                'id' => $fila['id'],
+                                                'title' => $fila['titulo'],
+                                                'start' => $fila['fechaInicio']." ".$fila['horaInicio'],
+                                                'end' => $fila['fechaFinalizacion']." ".$fila['horaFinalizacion']
+                                            );
+            } else {
+                $respuesta['eventos'][] = array(
+                    'id' => $fila['id'],
+                    'title' => $fila['titulo'],
+                    'start' => $fila['fechaInicio']
+                );            
+            } 
+        }
     }
 
     echo json_encode($respuesta);
