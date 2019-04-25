@@ -11,11 +11,12 @@ Create Table Usuarios(
 Create Table Eventos(
 	id int(11) NOT NULL AUTO_INCREMENT,
 	titulo varchar(255) NOT NULL,
-	fechaInicio datetime NOT NULL,
-	horaInicio datetime NULL,
-	fechaFinalizacion datetime NULL,
-	horaFinalizacion datetime NULL,
+	fechaInicio date NOT NULL,
+	horaInicio time NULL,
+	fechaFinalizacion date NULL,
+	horaFinalizacion time NULL,
 	diaCompleto boolean NOT NULL,
+	nombreUsuario varchar(255) NOT NULL,
 	PRIMARY KEY (id)
 );
 
