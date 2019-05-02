@@ -1,0 +1,12 @@
+.casilla{
+	height: 100px;
+	width: 100px;
+}
+
+.casilla-impar{
+	background-color: brown;
+}
+
+.casilla-par{
+	background-color: yellow;
+}
