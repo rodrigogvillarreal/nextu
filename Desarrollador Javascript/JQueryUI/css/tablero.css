@@ -1,12 +1,40 @@
 .casilla{
-	height: 100px;
-	width: 100px;
+	height: 90px;
+	width: 90px;
 }
 
-.casilla-impar{
+.casilla-impar.fila1,.casilla-impar.fila3,.casilla-impar.fila5,.casilla-impar.fila7,.casilla-impar.fila9{
 	background-color: brown;
+	color: white;
 }
 
-.casilla-par{
-	background-color: yellow;
+.casilla-par.fila1,.casilla-par.fila3,.casilla-par.fila5,.casilla-par.fila7,.casilla-par.fila9{
+	background-color: whitesmoke;
+}
+
+.casilla-impar.fila2,.casilla-impar.fila4,.casilla-impar.fila6,.casilla-impar.fila8,.casilla-impar.fila10{
+	background-color: whitesmoke;
+}
+
+.casilla-par.fila2,.casilla-par.fila4,.casilla-par.fila6,.casilla-par.fila8,.casilla-par.fila10{
+	background-color:  brown;
+	color: white;
+}
+
+.ficha {
+	width: 75px;
+	height: 75px;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+}
+
+.ficha-blanca{
+	background: yellow;
+	border: 2px lightyellow;
+}
+
+.ficha-negra{
+	background: black;
+	border: 2px brown;
 }
