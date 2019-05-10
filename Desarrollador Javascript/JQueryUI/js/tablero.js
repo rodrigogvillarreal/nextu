@@ -4,9 +4,44 @@ $(document).ready(function(){
 });
 
 function configFichas(){
-    $(".ficha").draggable();
+    $(".ficha").draggable({
+        cursor: "move",
+        cursorAt: {top: 30, left: 30},
+        snap: ".casilla",
+        snapMode: "inner",
+        start: function(){
+
+        },
+        drag: function(){
+            //$(this).addClass("fichaSeleccionada", 500);
+        },
+        stop: function(){
+            //$(this).removeClass("fichaSeleccionada");
+        }
+    });
+    $(".casilla-negra").droppable({
+        tolerance: "fit", //que todo el elemento sea depositado
+        classes: {
+            "ui-droppable": "highlight",
+          },
+        drop: function(event, ui){            
+            centrarFicha(ui.draggable, $(this)); //centro la ficha en su destino
+            $( ui.draggable ).draggable( "option", "revert", false ); //revierto en caso de que la ficha antes haya realizado un movimiento inválido
+        }
+    });
+
+    //no dejo que las fichas sean movidas a las casillas blancas
+    $(".casilla-blanca").droppable({
+        tolerance: "fit", //que todo el elemento sea depositado
+        drop: function(event, ui){            
+            $( ui.draggable ).draggable( "option", "revert", true ); //no puedo depositar una ficha en casilla blanca, vuelve a su posicion
+        }
+    });
 }
 
+/*
+    Con esta fucnión inicializo las fichas en el tablero
+*/
 function posicionarFichas(){
     centrarFicha($("#ficha-blanca-1"), $("#casilla1x1"));
     centrarFicha($("#ficha-blanca-2"), $("#casilla3x1"));
@@ -34,6 +69,9 @@ function posicionarFichas(){
     centrarFicha($("#ficha-negra-12"), $("#casilla8x8"));
 }
 
+/*
+    Con esta funcion posiciono una ficha en la casilla
+*/
 function centrarFicha(ficha, casilla){
     ficha.position({
         my: "center",
