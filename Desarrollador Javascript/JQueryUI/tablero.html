@@ -2,221 +2,93 @@
 <html lang="es">
 <head>
 <meta charset="utf-8" />
-<title>JQuery UI > Evaluacion Final | Rodrigo Villarreal</title>
+<title>Juego de Damas clásico | Rodrigo Villarreal</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css" />
 <link rel="stylesheet" type="text/css" href="css/tablero.css" />
 </head>
 <body>
-	<div class="container">
-	  <div class="row">
-		<div class="col-sm casilla casilla-impar fila1" id="casilla1x1">
-		  1x1
-		</div>
-		<div class="col-sm casilla casilla-par fila1" id="casilla2x1">
-		  2x1
-		</div>
-		<div class="col-sm casilla casilla-impar fila1" id="casilla3x1">
-		  3x1
-		</div>
-		<div class="col-sm casilla casilla-par fila1" id="casilla4x1">
-		  4x1
-		</div>
-		<div class="col-sm casilla casilla-impar fila1" id="casilla5x1">
-		  5x1
-		</div>
-		<div class="col-sm casilla casilla-par fila1" id="casilla6x1">
-		  6x1
-		</div>
-		<div class="col-sm casilla casilla-impar fila1" id="casilla7x1">
-		  7x1
-		</div>
-		<div class="col-sm casilla casilla-par fila1" id="casilla8x1">
-		  8x1
-		</div>
+	<div class="tablero container">
+			<div class="row">
+			<div class="col-sm casilla casilla-negra casilla-impar fila1" id="casilla1x1"></div>
+			<div class="col-sm casilla casilla-blanca casilla-par fila1" id="casilla2x1"></div>
+			<div class="col-sm casilla casilla-negra casilla-impar fila1" id="casilla3x1"></div>
+			<div class="col-sm casilla casilla-blanca casilla-par fila1" id="casilla4x1"></div>
+			<div class="col-sm casilla casilla-negra casilla-impar fila1" id="casilla5x1"></div>
+			<div class="col-sm casilla casilla-blanca casilla-par fila1" id="casilla6x1"></div>
+			<div class="col-sm casilla casilla-negra casilla-impar fila1" id="casilla7x1"></div>
+			<div class="col-sm casilla casilla-blanca casilla-par fila1" id="casilla8x1"></div>
 	  </div>
 	  <div class="row">
-		<div class="col-sm casilla casilla-impar fila2" id="casilla1x2">
-		  1x2
-		</div>
-		<div class="col-sm casilla casilla-par fila2" id="casilla2x2">
-		  2x2
-		</div>
-		<div class="col-sm casilla casilla-impar fila2" id="casilla3x2">
-		  3x2
-		</div>
-		<div class="col-sm casilla casilla-par fila2" id="casilla4x2">
-		  4x2
-		</div>
-		<div class="col-sm casilla casilla-impar fila2" id="casilla5x2">
-		  5x2
-		</div>
-		<div class="col-sm casilla casilla-par fila2" id="casilla6x2">
-		  6x2
-		</div>
-		<div class="col-sm casilla casilla-impar fila2" id="casilla7x2">
-		  7x2
-		</div>
-		<div class="col-sm casilla casilla-par fila2" id="casilla8x2">
-		  8x2
-		</div>
+			<div class="col-sm casilla casilla-blanca casilla-impar fila2" id="casilla1x2"></div>
+			<div class="col-sm casilla casilla-negra casilla-par fila2" id="casilla2x2"></div>
+			<div class="col-sm casilla casilla-blanca casilla-impar fila2" id="casilla3x2"></div>
+			<div class="col-sm casilla casilla-negra casilla-par fila2" id="casilla4x2"></div>
+			<div class="col-sm casilla casilla-blanca casilla-impar fila2" id="casilla5x2"></div>
+			<div class="col-sm casilla casilla-negra casilla-par fila2" id="casilla6x2"></div>
+			<div class="col-sm casilla casilla-blanca casilla-impar fila2" id="casilla7x2"></div>
+			<div class="col-sm casilla casilla-negra casilla-par fila2" id="casilla8x2"></div>
 	  </div>
 	  <div class="row">
-		<div class="col-sm casilla casilla-impar fila3" id="casilla1x3">
-		  1x3
-		</div>
-		<div class="col-sm casilla casilla-par fila3" id="casilla2x3">
-		  2x3
-		</div>
-		<div class="col-sm casilla casilla-impar fila3" id="casilla3x3">
-		  3x3
-		</div>
-		<div class="col-sm casilla casilla-par fila3" id="casilla4x3">
-		  4x3
-		</div>
-		<div class="col-sm casilla casilla-impar fila3" id="casilla5x3">
-		  5x3
-		</div>
-		<div class="col-sm casilla casilla-par fila3" id="casilla6x3">
-		  6x3
-		</div>
-		<div class="col-sm casilla casilla-impar fila3" id="casilla7x3">
-		  7x3
-		</div>
-		<div class="col-sm casilla casilla-par fila3" id="casilla8x3">
-		  8x3
-		</div>
+			<div class="col-sm casilla casilla-negra casilla-impar fila3" id="casilla1x3"></div>
+			<div class="col-sm casilla casilla-blanca casilla-par fila3" id="casilla2x3"></div>
+			<div class="col-sm casilla casilla-negra casilla-impar fila3" id="casilla3x3"></div>
+			<div class="col-sm casilla casilla-blanca casilla-par fila3" id="casilla4x3"></div>
+			<div class="col-sm casilla casilla-negra casilla-impar fila3" id="casilla5x3"></div>
+			<div class="col-sm casilla casilla-blanca casilla-par fila3" id="casilla6x3"></div>
+			<div class="col-sm casilla casilla-negra casilla-impar fila3" id="casilla7x3"></div>
+			<div class="col-sm casilla casilla-blanca casilla-par fila3" id="casilla8x3"></div>
 	  </div>
 	  <div class="row">
-		<div class="col-sm casilla casilla-impar fila4" id="casilla1x4">
-		  1x4
-		</div>
-		<div class="col-sm casilla casilla-par fila4" id="casilla2x4">
-		  2x4
-		</div>
-		<div class="col-sm casilla casilla-impar fila4" id="casilla3x4">
-		  3x4
-		</div>
-		<div class="col-sm casilla casilla-par fila4" id="casilla4x4">
-		  4x4
-		</div>
-		<div class="col-sm casilla casilla-impar fila4" id="casilla5x4">
-		  5x4
-		</div>
-		<div class="col-sm casilla casilla-par fila4" id="casilla6x4">
-		  6x4
-		</div>
-		<div class="col-sm casilla casilla-impar fila4" id="casilla7x4">
-		  7x4
-		</div>
-		<div class="col-sm casilla casilla-par fila4" id="casilla8x4">
-		  8x4
-		</div>
+			<div class="col-sm casilla casilla-blanca casilla-impar fila4" id="casilla1x4"></div>
+			<div class="col-sm casilla casilla-negra casilla-par fila4" id="casilla2x4"></div>
+			<div class="col-sm casilla casilla-blanca casilla-impar fila4" id="casilla3x4"></div>
+			<div class="col-sm casilla casilla-negra casilla-par fila4" id="casilla4x4"></div>
+			<div class="col-sm casilla casilla-blanca casilla-impar fila4" id="casilla5x4"></div>
+			<div class="col-sm casilla casilla-negra casilla-par fila4" id="casilla6x4"></div>
+			<div class="col-sm casilla casilla-blanca casilla-impar fila4" id="casilla7x4"></div>
+			<div class="col-sm casilla casilla-negra casilla-par fila4" id="casilla8x4"></div>
 	  </div>
 	  <div class="row">
-		<div class="col-sm casilla casilla-impar fila5" id="casilla1x5">
-		  1x5
-		</div>
-		<div class="col-sm casilla casilla-par fila5" id="casilla2x5">
-		  2x5
-		</div>
-		<div class="col-sm casilla casilla-impar fila5" id="casilla3x5">
-		  3x5
-		</div>
-		<div class="col-sm casilla casilla-par fila5" id="casilla4x5">
-		  4x5
-		</div>
-		<div class="col-sm casilla casilla-impar fila5" id="casilla5x5">
-		  5x5
-		</div>
-		<div class="col-sm casilla casilla-par fila5" id="casilla6x5">
-		  6x5
-		</div>
-		<div class="col-sm casilla casilla-impar fila5" id="casilla7x5">
-		  7x5
-		</div>
-		<div class="col-sm casilla casilla-par fila5" id="casilla8x5">
-		  8x5
-		</div>
+			<div class="col-sm casilla casilla-negra casilla-impar fila5" id="casilla1x5"></div>
+			<div class="col-sm casilla casilla-blanca casilla-par fila5" id="casilla2x5"></div>
+			<div class="col-sm casilla casilla-negra casilla-impar fila5" id="casilla3x5"></div>
+			<div class="col-sm casilla casilla-blanca casilla-par fila5" id="casilla4x5"></div>
+			<div class="col-sm casilla casilla-negra casilla-impar fila5" id="casilla5x5"></div>
+			<div class="col-sm casilla casilla-blanca casilla-par fila5" id="casilla6x5"></div>
+			<div class="col-sm casilla casilla-negra casilla-impar fila5" id="casilla7x5"></div>
+			<div class="col-sm casilla casilla-blanca casilla-par fila5" id="casilla8x5">	</div>
 	  </div>
 	  <div class="row">
-		<div class="col-sm casilla casilla-impar fila6" id="casilla1x6">
-		  1x6
-		</div>
-		<div class="col-sm casilla casilla-par fila6" id="casilla2x6">
-		  2x6
-		</div>
-		<div class="col-sm casilla casilla-impar fila6" id="casilla3x6">
-		  3x6
-		</div>
-		<div class="col-sm casilla casilla-par fila6" id="casilla4x6">
-		  4x6
-		</div>
-		<div class="col-sm casilla casilla-impar fila6" id="casilla5x6">
-		  5x6
-		</div>
-		<div class="col-sm casilla casilla-par fila6" id="casilla6x6">
-		  6x6
-		</div>
-		<div class="col-sm casilla casilla-impar fila6" id="casilla7x6">
-		  7x6
-		</div>
-		<div class="col-sm casilla casilla-par fila6" id="casilla8x6">
-		  8x6
-		</div>
+			<div class="col-sm casilla casilla-blanca casilla-impar fila6" id="casilla1x6"></div>
+			<div class="col-sm casilla casilla-negra casilla-par fila6" id="casilla2x6"></div>
+			<div class="col-sm casilla casilla-blanca casilla-impar fila6" id="casilla3x6"></div>
+			<div class="col-sm casilla casilla-negra casilla-par fila6" id="casilla4x6"></div>
+			<div class="col-sm casilla casilla-blanca casilla-impar fila6" id="casilla5x6"></div>
+			<div class="col-sm casilla casilla-negra casilla-par fila6" id="casilla6x6"></div>
+			<div class="col-sm casilla casilla-blanca casilla-impar fila6" id="casilla7x6"></div>
+			<div class="col-sm casilla casilla-negra casilla-par fila6" id="casilla8x6"></div>
 	  </div>
 	  <div class="row">
-		<div class="col-sm casilla casilla-impar fila7" id="casilla1x7">
-		  1x7
-		</div>
-		<div class="col-sm casilla casilla-par fila7" id="casilla2x7">
-		  2x7
-		</div>
-		<div class="col-sm casilla casilla-impar fila7" id="casilla3x7">
-		  3x7
-		</div>
-		<div class="col-sm casilla casilla-par fila7" id="casilla4x7">
-		  4x7
-		</div>
-		<div class="col-sm casilla casilla-impar fila7" id="casilla5x7">
-		  5x7
-		</div>
-		<div class="col-sm casilla casilla-par fila7" id="casilla6x7">
-		  6x7
-		</div>
-		<div class="col-sm casilla casilla-impar fila7" id="casilla7x7">
-		  7x7
-		</div>
-		<div class="col-sm casilla casilla-par fila7" id="casilla8x7">
-		  8x7
-		</div>
+			<div class="col-sm casilla casilla-negra casilla-impar fila7" id="casilla1x7"></div>
+			<div class="col-sm casilla casilla-blanca casilla-par fila7" id="casilla2x7"></div>
+			<div class="col-sm casilla casilla-negra casilla-impar fila7" id="casilla3x7"></div>
+			<div class="col-sm casilla casilla-blanca casilla-par fila7" id="casilla4x7"></div>
+			<div class="col-sm casilla casilla-negra casilla-impar fila7" id="casilla5x7"></div>
+			<div class="col-sm casilla casilla-blanca casilla-par fila7" id="casilla6x7"></div>
+			<div class="col-sm casilla casilla-negra casilla-impar fila7" id="casilla7x7"></div>
+			<div class="col-sm casilla casilla-blanca casilla-par fila7" id="casilla8x7">	</div>
 	  </div>
-	  <div class="row">
-		<div class="col-sm casilla casilla-impar fila8" id="casilla1x8">
-		  1x8
-		</div>
-		<div class="col-sm casilla casilla-par fila8" id="casilla2x8">
-		  2x8
-		</div>
-		<div class="col-sm casilla casilla-impar fila8" id="casilla3x8">
-		  3x8
-		</div>
-		<div class="col-sm casilla casilla-par fila8" id="casilla4x8">
-		  4x8
-		</div>
-		<div class="col-sm casilla casilla-impar fila8" id="casilla5x8">
-		  5x8
-		</div>
-		<div class="col-sm casilla casilla-par fila8" id="casilla6x8">
-		  6x8
-		</div>
-		<div class="col-sm casilla casilla-impar fila8" id="casilla7x8">
-		  7x8
-		</div>
-		<div class="col-sm casilla casilla-par fila8" id="casilla8x8">
-		  8x8
-		</div>
+		<div class="row">
+			<div class="col-sm casilla casilla-blanca casilla-impar fila8" id="casilla1x8"></div>
+			<div class="col-sm casilla casilla-negra casilla-par fila8" id="casilla2x8"></div>
+			<div class="col-sm casilla casilla-blanca casilla-impar fila8" id="casilla3x8"></div>
+			<div class="col-sm casilla casilla-negra casilla-par fila8" id="casilla4x8"></div>
+			<div class="col-sm casilla casilla-blanca casilla-impar fila8" id="casilla5x8"></div>
+			<div class="col-sm casilla casilla-negra casilla-par fila8" id="casilla6x8"></div>
+			<div class="col-sm casilla casilla-blanca casilla-impar fila8" id="casilla7x8"></div>
+			<div class="col-sm casilla casilla-negra casilla-par fila8" id="casilla8x8"></div>
 	  </div>
 	</div>
 	<div id="ficha-blanca-1" class="ficha ficha-blanca"></div>
