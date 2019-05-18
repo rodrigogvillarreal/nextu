@@ -16,7 +16,8 @@ class EventManager {
 
     eliminarEvento(evento) {
         let eventId = evento.id
-        $.post('/events/delete/'+eventId, {id: eventId}, (response) => {
+        $.post('/events/delete', {id: eventId}, (response) => {
+            $('.calendario').fullCalendar('removeEvents', evento._id);
             alert(response)
         })
     }
@@ -87,7 +88,7 @@ class EventManager {
                 center: 'title',
                 right: 'month,agendaWeek,basicDay'
             },
-            defaultDate: '2016-11-01',
+            defaultDate: '2019-05-01',
             navLinks: true,
             editable: true,
             eventLimit: true,
@@ -110,13 +111,37 @@ class EventManager {
                 var y1 = ofs.top;
                 var y2 = ofs.top + trashEl.outerHeight(true);
                 if (jsEvent.pageX >= x1 && jsEvent.pageX<= x2 &&
-                    jsEvent.pageY >= y1 && jsEvent.pageY <= y2) {
+                    jsEvent.pageY >= y1 && jsEvent.pageY <= y2) {                                                
                         this.eliminarEvento(event)
-                        $('.calendario').fullCalendar('removeEvents', event.id);
                     }
-                }
+                $('.delete').find('img').attr('src', "../img/delete.png");
+                }                
             })
         }
+
+        actualizarEvento(evento) {
+
+            if(evento.end === null){ 
+              var start = moment(evento.start).format('YYYY-MM-DD'),
+                  end = null
+            }else{
+              var start = moment(evento.start).format('YYYY-MM-DD HH:mm:ss'), 
+                  end = moment(evento.end).format('YYYY-MM-DD HH:mm:ss')
+            }
+  
+            var data = { 
+                id: evento._id, 
+                start: start, 
+                end: end 
+            }
+            
+            let url = this.urlBase + "/update"
+
+            $.post(url, data, (response) => { 
+                alert(response) 
+            })
+          }        
+
     }
 
     const Manager = new EventManager()
