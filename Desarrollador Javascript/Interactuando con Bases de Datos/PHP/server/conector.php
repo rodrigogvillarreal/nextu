@@ -3,8 +3,8 @@
     class ConectorBD
     {
         protected $host = 'localhost';
-        protected $user = 'developer';
-        protected $pass = 'developer';
+        protected $user = 'root';
+        protected $pass = '';
         protected $base = 'bd_php';
         protected $conn;
 
