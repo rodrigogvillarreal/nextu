@@ -6,15 +6,16 @@ const http = require('http'),
       mongoose = require('mongoose');
 
 const PORT = 3000
+const MONGODB = 'mongodb://localhost:27017/test' //defino la base de datos Mongo DB
 const app = express()
 
 const Server = http.createServer(app)
 
-mongoose.connect('mongodb://localhost:27017/test', {useCreateIndex: true, useNewUrlParser: true})
+mongoose.connect(MONGODB, {useCreateIndex: true, useNewUrlParser: true})
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
-app.use(express.static('../client/'));
+app.use(express.static('../client/'))
 app.use('/', Routing)
 
 Server.listen(PORT, function(){
