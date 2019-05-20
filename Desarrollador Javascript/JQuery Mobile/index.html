@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width = device-width, initial-scale=1" charset="utf-8">
+    <link rel="stylesheet" href="jquery.mobile-1.4.4.css">
+    <script src="jquery-1.11.1.js"></script>
+	<script src="jquery.mobile-1.4.4.js"></script>
+    <script type="text/javascript">
+    $(document).on("mobileinit", function() {
+
+     $.mobile.defaultPageTransition='fade';
+
+    });	
+    $(document).ready(function() {
+
+    	var hoteles = [];
+
+        $("#btnPageRegistrarHotel").click(function(){
+
+        	$("#nombre").val("");
+        	$("#ciudad").val("");
+        	$("#telefono").val("");
+        	$("#estrellas").val("");
+        	$("#ubicacion").val("");
+
+        	$.mobile.changePage("#paginaRegistro");
+        });
+
+        $("#btnPageListarHotel").click(function(){
+        	$.mobile.changePage("#paginaListar");
+        });
+
+        $("#btnRegistrar").click(function() {
+
+	        	var nombre = $("#nombre").val();
+	        	var ciudad = $("#ciudad").val();
+	        	var telefono = $("#telefono").val();
+	        	var estrellas = $("#estrellas").val();
+	        	var ubicacion = $("#ubicacion").val();
+
+	        	var hotel = {
+	        		nombre: nombre,
+	        		ciudad: ciudad,
+	        		telefono: telefono,
+	        		estrellas: estrellas,
+	        		ubicacion: ubicacion
+	        	}
+
+	        	hoteles.push(hotel);
+
+                $.mobile.changePage("#paginaHotel");
+
+        });       
+
+        $("#btnVolver1").click(function(){
+        	$.mobile.changePage("#paginaPrincipal");
+        });
+
+
+    })
+    </script>
+
+    <body>
+	
+		<div data-role="page" id="paginaPrincipal">
+			<div data-role="header">
+				<h1>Gestión Hotel</h1>
+			</div>
+			<div data-role="content">
+				<a id="btnPageRegistrarHotel" class="ui-btn">Registrar Hotel</a>
+				<a id="btnPageListarHotel" class="ui-btn">Lista Hoteles</a>
+			</div>
+			<div data-role="footer">
+				<p align="center">Gestión Hotel</p>
+			</div>
+		</div>
+
+        <div data-role="page" id="paginaRegistro">
+            <div data-role="header">
+                <h1>Registrar Hotel</h1>
+            </div>
+            <div data-role="content">
+                <form>
+                    <div class="ui-field-contain">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" name="nombre" id="nombre">
+                        <label for="ciudad">Ciudad:</label>
+                        <input type="text" name="ciudad" id="ciudad">
+                        <label for="telefono">Teléfono:</label>
+                        <input type="text" name="telefono" id="telefono">
+                        <label for="estrellas">Estrellas:</label>
+                        <input type="text" name="estrellas" id="estrellas">
+                        <label for="ubicacion">Ubicación:</label>
+                        <input type="text" name="ubicacion" id="ubicacion">					
+                    </div>
+                    <a id="btnRegistrar" class="ui-btn">Registrar</a>
+                    <a id="btnVolver1" class="ui-btn">Volver</a>
+                </form>
+            </div>
+            <div data-role="footer">
+                <p align="center">Registro Hotel</p>
+            </div>
+        </div>
+
+		<div data-role="page" id="paginaListar">
+			<div data-role="header">
+				<h1>Lista Hoteles</h1>
+			</div>
+			<div data-role="content"></div>
+			<div data-role="footer">
+				<p align="center">Lista Hoteles</p>
+			</div>
+		</div>        
+
+		<div data-role="page" id="paginaHotel">
+			<div data-role="header">
+				<h1></h1>
+			</div>
+			<div data-role="content"></div>
+			<div data-role="footer">
+				<p align="center"></p>
+			</div>
+		</div>
+
+    </body>
+
+</html>
