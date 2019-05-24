@@ -5,38 +5,68 @@
     <link rel="stylesheet" href="jquery.mobile-1.4.4.css">
     <script src="jquery-1.11.1.js"></script>
 	<script src="jquery.mobile-1.4.4.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0Dx_boXQiwvdz8sJHoYeZNVTdoWONYkU"></script>
+    <style type="text/css">
+    	.map{
+    		height: 400px;
+    		width: 100%;
+    	}
+    </style>
     <script type="text/javascript">
+
+    //variable que guarda los hoteles cargados
+    var hoteles = []; 
+
+	// var hotel = {
+	// 	nombre: "Hotel Ritz",
+	// 	ciudad: "Alta Gracia",
+	// 	telefono: "03547 425698",
+	// 	estrellas: 3,
+	// 	ubicacion: "Belgrano 460, Alta Gracia, Córdoba"
+	// }
+
+	// hoteles.push(hotel); 
+
+	//variables para la carga del mapa
+	var marcador;
+	var mapa;
+	var view_mapa;
+	var latlngInicial = new google.maps.LatLng(-31.666727, -64.436959); //Alta Gracia, Córdoba, Argentina
+	var ventanaInfo;
+
+	//Cargo opciones de inicializacion
     $(document).on("mobileinit", function() {
 
-     $.mobile.defaultPageTransition='fade';
+     $.mobile.defaultPageTransition='fade';     
 
     });	
-    $(document).ready(function() {
+    $(document).ready(function() {    	   	
 
-    	var hoteles = [];
+    	//Ir a la pagina de nuevo registro
+        $(".btnPageRegistrarHotel").click(function(){
 
-        $("#btnPageRegistrarHotel").click(function(){
-
+        	//limpio los campos a completar
         	$("#nombre").val("");
         	$("#ciudad").val("");
         	$("#telefono").val("");
-        	$("#estrellas").val("");
         	$("#ubicacion").val("");
 
         	$.mobile.changePage("#paginaRegistro");
         });
 
-        $("#btnPageListarHotel").click(function(){
+        //Ir a la pagina de listar hoteles
+        $(".btnPageListarHotel").click(function(){
         	$.mobile.changePage("#paginaListar");
         });
 
+        //Registrar Hotel
         $("#btnRegistrar").click(function() {
 
 	        	var nombre = $("#nombre").val();
 	        	var ciudad = $("#ciudad").val();
-	        	var telefono = $("#telefono").val();
-	        	var estrellas = $("#estrellas").val();
+	        	var telefono = $("#telefono").val();	        	
 	        	var ubicacion = $("#ubicacion").val();
+	        	var estrellas = $("#estrellas").val();
 
 	        	var hotel = {
 	        		nombre: nombre,
@@ -48,36 +78,165 @@
 
 	        	hoteles.push(hotel);
 
-                $.mobile.changePage("#paginaHotel");
+	        	//recargo la lista de hoteles en la pagina listadoHoteles
+	        	recargarListaHoteles();
+
+	        	//cargo el ultimo hotel cargado
+	        	recargarHotel(hoteles.length-1);
 
         });       
 
-        $("#btnVolver1").click(function(){
+        //Ir a la página principal
+        $("#btnVolver1, #btnVolver2").click(function(){
         	$.mobile.changePage("#paginaPrincipal");
         });
 
+        $(document).on("pagechange", function(event, data){
+			//var page = $.mobile.pageContainer.pagecontainer("getActivePage").attr("id");
+			var page = data.toPage.attr("id");
+			if(page=="paginaListar"){						
+        		$('#listaHoteles').listview('refresh');
+        	}
+        });        
 
-    })
+        //Cargo los mapas de edicion y vista
+        mostrarMapa();    
+
+        //cargo la ubicacion si pierdo el foco en el campo
+        $("#ubicacion").blur(function(){
+        	//alert('buscar ubicacion: '+$("#ubicacion").val());
+        	if($("#ubicacion").val()!=''){
+        		buscarUbicacion($("#ubicacion").val(), mapa, true, $("#ubicacion").val());
+        	}
+        });  
+
+        //cargo la ubicacion si le doy a la tecla enter
+        $("#ubicacion").keypress(function(event){
+		    var keycode = (event.keyCode ? event.keyCode : event.which);
+		    if(keycode == '13'){
+	        	if($("#ubicacion").val()!=''){
+	        		buscarUbicacion($("#ubicacion").val(), mapa, true, $("#ubicacion").val());
+	        	}
+		    }        	
+        });
+
+        //Ir a la pagina del hotel seleccionado de la lista
+	    $("#listaHoteles").on('click', 'li', function(){
+	    	recargarHotel($(this).attr('id'));
+	    });        
+
+    });
+    //funcion que carga la lista de hoteles almacenados
+    function recargarListaHoteles(){
+    	//limpio la lista de hoteles
+    	for(var i=0; i<$("#listaHoteles").children().length; i++){
+    		$("#listaHoteles").children(i).remove();
+    	}
+		//cargo la lista de hoteles segun el array
+		$.each(hoteles, function(key, value){
+			var nuevoItem = document.createElement("li");
+			nuevoItem.setAttribute('id', key);
+			var nuevoElemento = document.createElement("a");
+			nuevoElemento.innerHTML = value.nombre;			
+			nuevoItem.append(nuevoElemento);
+			$("#listaHoteles").append(nuevoItem);
+		});
+		//$('#listaHoteles').listview();
+    }
+    //funcion que carga los datos del hotel seleccionado y muestra los datos y su ubicacion en el mapa
+    function recargarHotel(id){
+    	var hotel = hoteles[id];
+		$("#txtNombre").html("<b>Nombre: </b>"+hotel.nombre);
+		$("#txtCiudad").html("<b>Ciudad: </b>"+hotel.ciudad);
+		$("#txtTelefono").html("<b>Teléfono: </b>"+hotel.telefono);
+		$("#txtEstrellas").html("<b>Estrellas: </b>"+hotel.estrellas);			
+		$("#txtUbicacion").html("<b>Ubicacion: </b>"+hotel.ubicacion);
+		buscarUbicacion(hotel.ubicacion, view_mapa, false, hotel.ubicacion, true);
+		$.mobile.changePage("#paginaHotel");
+		var info = "Nombre: <b>"+hotel.nombre+"</b><br>Teléfono: <b>"+hotel.telefono+"</b><br>Ubicación: <b>"+hotel.ubicacion+"</b>";
+    	ventanaInfo = new google.maps.InfoWindow({
+    		content: info
+    	});
+    }
+    //funcion que busca la ubicacion y la carga en el mapa, el marcador puede ser editable segun la situación
+    function buscarUbicacion(pUbicacion, pMapa, pDraggable, pTxtContenido="", pInfoWindow=false){
+    	var geocoder = new google.maps.Geocoder();
+    	//loading
+    	geocoder.geocode({
+    		'address': pUbicacion
+    	}, function(resultado, estado){
+    		if(estado == google.maps.GeocoderStatus.OK){
+    			marcador = new google.maps.Marker({
+    				map: pMapa,
+    				position: resultado[0].geometry.location,
+    				draggable: pDraggable,
+    				animation: google.maps.Animation.DROP
+    			});    			
+    			pMapa.setZoom(8);
+		    	if(pInfoWindow==true){
+		    		marcador.addListener('click', function(){
+		    			ventanaInfo.open(pMapa, marcador);
+		    			pMapa.setZoom(15);
+		    			pMapa.setCenter(marcador.getPosition());
+		    		})
+		    	}    
+		    	if(pDraggable==true){
+		    		marcador.addListener('dragend', function(event){
+			    		var pos = {
+			    			lat: event.latLng.lat(),
+			    			lng: event.latLng.lng()
+			    		}
+			    		buscarPosition(pos);		    			
+		    		})
+		    	}
+    		}else{
+    			alert("No fue posible encontrar la ubicación. (Error: "+estado+")");
+    		}    		
+    	})
+    }
+    //funcion que carga los mapas utilizados por la aplicacion
+    function mostrarMapa(){
+    	var opciones = {
+    		zoom: 6,
+    		center: latlngInicial,
+    		mapTypeId: 'roadmap'
+    	};
+    	mapa = new google.maps.Map(document.getElementById("map"), opciones);
+    	view_mapa = new google.maps.Map(document.getElementById("viewmap"), opciones);
+    }
+    //funcion que busca la direccion segun el movimiento del marcador
+	function buscarPosition(pos) {
+	  var geocoder = new google.maps.Geocoder();
+	  geocoder.geocode({
+	    latLng: pos
+	  }, function(responses) {
+	    if (responses && responses.length > 0) {
+	    	$("#ubicacion").val(responses[0].formatted_address);
+	    } else {
+	      alert('No fue posible encontrar la ubicación.');
+	    }
+	  });
+	}    
     </script>
 
     <body>
 	
 		<div data-role="page" id="paginaPrincipal">
 			<div data-role="header">
-				<h1>Gestión Hotel</h1>
+				<h1>Gestión de Hoteles</h1>
 			</div>
 			<div data-role="content">
-				<a id="btnPageRegistrarHotel" class="ui-btn">Registrar Hotel</a>
-				<a id="btnPageListarHotel" class="ui-btn">Lista Hoteles</a>
+				<a class="btnPageRegistrarHotel ui-btn ui-corner-all">Registrar Hotel</a>
+				<a class="btnPageListarHotel ui-btn ui-corner-all">Lista Hoteles</a>
 			</div>
 			<div data-role="footer">
-				<p align="center">Gestión Hotel</p>
+				<p align="center">Gestión de Hoteles</p>
 			</div>
 		</div>
 
         <div data-role="page" id="paginaRegistro">
             <div data-role="header">
-                <h1>Registrar Hotel</h1>
+                <h1>Registrar hotel</h1>
             </div>
             <div data-role="content">
                 <form>
@@ -87,38 +246,58 @@
                         <label for="ciudad">Ciudad:</label>
                         <input type="text" name="ciudad" id="ciudad">
                         <label for="telefono">Teléfono:</label>
-                        <input type="text" name="telefono" id="telefono">
+                        <input type="text" name="telefono" id="telefono">                        
                         <label for="estrellas">Estrellas:</label>
-                        <input type="text" name="estrellas" id="estrellas">
-                        <label for="ubicacion">Ubicación:</label>
-                        <input type="text" name="ubicacion" id="ubicacion">					
+                        <select name="estrellas" id="estrellas">
+						  <option value="5">5</option>
+						  <option value="4">4</option>
+						  <option value="3">3</option>
+						  <option value="2">2</option>
+						  <option value="1">1</option>
+						</select>
+						<label for="ubicacion">Ubicación:</label>
+                        <input type="text" name="ubicacion" id="ubicacion">  
+						<div id="map" class="map"></div>
                     </div>
-                    <a id="btnRegistrar" class="ui-btn">Registrar</a>
-                    <a id="btnVolver1" class="ui-btn">Volver</a>
+                    <a id="btnRegistrar" class="ui-btn ui-corner-all ui-icon-plus ui-btn-icon-right">Registrar</a>
+                    <a id="btnVolver1" class="ui-btn ui-corner-all ui-icon-back ui-btn-icon-right">Volver</a>
                 </form>
             </div>
             <div data-role="footer">
-                <p align="center">Registro Hotel</p>
+                <p align="center">Registrar hotel</p>
             </div>
         </div>
 
 		<div data-role="page" id="paginaListar">
 			<div data-role="header">
-				<h1>Lista Hoteles</h1>
+				<h1>Hoteles registrados</h1>
 			</div>
-			<div data-role="content"></div>
+			<div data-role="content">
+				<ul data-role="listview" id="listaHoteles" data-filter="true" data-filter-placeholder="Buscar hotel..."></ul>
+				<br />
+				<a class="btnPageRegistrarHotel ui-btn ui-corner-all ui-icon-plus ui-btn-icon-right">Agregar nuevo</a>
+				<a id="btnVolver2" class="ui-btn ui-corner-all ui-icon-back ui-btn-icon-right">Volver</a>
+			</div>
 			<div data-role="footer">
-				<p align="center">Lista Hoteles</p>
+				<p align="center">Hoteles registrados</p>
 			</div>
 		</div>        
 
 		<div data-role="page" id="paginaHotel">
 			<div data-role="header">
-				<h1></h1>
+				<h1>Hotel</h1>
 			</div>
-			<div data-role="content"></div>
+			<div data-role="content">
+				<div id="txtNombre"></div>
+				<div id="txtCiudad"></div>
+				<div id="txtTelefono"></div>
+				<div id="txtEstrellas"></div>
+				<div id="ubicacion"></div>
+				<div id="viewmap" class="map"></div>
+				<a class="btnPageListarHotel ui-btn ui-corner-all">Lista Hoteles</a>
+			</div>
 			<div data-role="footer">
-				<p align="center"></p>
+				<p align="center">Hotel</p>
 			</div>
 		</div>
 
